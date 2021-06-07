@@ -3,22 +3,22 @@ import { Input } from "antd";
 import searchIcon from "../../assets/search-24px.png";
 
 interface seachProps {
-  searchIcon: Boolean | String;
+  icon: Boolean | String;
   loadingStatus: Boolean | any;
   inputFun: Function;
   searchFun: Function;
   onSearch?: Function;
 }
 function Search({
-  searchIcon,
+  icon,
   loadingStatus,
   inputFun,
   searchFun,
   onSearch,
 }: seachProps): React.ReactElement<seachProps> {
   const { Search } = Input;
-  console.log("searchIcon", searchIcon);
-  const SearchIcon = searchIcon ? "0" : "1";
+  console.log("icon", icon);
+  const SearchIcon = icon ? <img src="../src/assets/search-24px.png" /> : "1";
   return (
     <Search
       placeholder="搜索区块 / 交易 / CID / 账户"

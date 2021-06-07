@@ -8,12 +8,12 @@ function Home(): React.ReactElement {
   return (
     <div className="">
       <div className="w-150 h-40 flex flex-col mx-auto my-auto">
-        <div className="w-223 h-18 justify-center mx-auto mb-3">
+        <div className="w-223 h-18 justify-center mx-auto mb-10">
           <MinixIcon />
         </div>
         <div className="w-150 h-13 justify-center">
           <Search
-            searchIcon={true}
+            icon={true}
             loadingStatus={false}
             searchFun={searchFun}
             inputFun={inputFun}
