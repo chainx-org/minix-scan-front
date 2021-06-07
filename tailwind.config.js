@@ -51,6 +51,9 @@ module.exports = {
       "7xl": "5rem",
       title: "2rem",
     },
+    textColor: {
+      gray: " #504862;",
+    },
     borderColor: (theme) => ({
       ...theme("colors"),
       default: "#EFEFEF",
