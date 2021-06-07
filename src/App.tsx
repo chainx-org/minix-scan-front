@@ -1,8 +1,11 @@
 import React from "react";
+import Home from "../src/pages/page-homePage";
 
 const App: React.FC = () => {
   return (
-    <div>kusama</div>
+    <div>
+      <Home />
+    </div>
   );
 };
 
