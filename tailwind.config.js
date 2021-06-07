@@ -60,6 +60,8 @@ module.exports = {
       card: "#EAECF7",
       listItem: "#EAECF7",
       lang: "#DEDEDE",
+      vote: "#272233",
+      pledge: "#DADADA",
     }),
     borderRadius: {
       lg: ".5rem",
@@ -159,7 +161,9 @@ module.exports = {
         fitContent: "fit-content",
         6: "1.5rem",
         7: "1.75rem",
+        12: "3rem",
         14: "3.5rem",
+        18: "4.5rem",
         20: "5rem",
         21.25: "21.25rem",
         24.5: "6.125rem",
