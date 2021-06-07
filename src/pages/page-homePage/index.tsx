@@ -3,6 +3,7 @@ import Search from "../../components/Search";
 import MinixIcon from "../../components/MinixIcon";
 import SearchList from "../../components/SearchList";
 import { searchFun } from "../helper/SearchFun";
+import Footer from "../../components/Footer/index";
 
 function Home(): React.ReactElement {
   let [itemValue, setItemValue] = useState([
@@ -31,7 +32,7 @@ function Home(): React.ReactElement {
   };
 
   return (
-    <div className="">
+    <div className="bg-index-bg">
       <div className="w-150 h-40 flex flex-col mx-auto my-auto">
         <div className="w-223 h-18 justify-center mx-auto mb-10">
           <MinixIcon />
@@ -47,6 +48,9 @@ function Home(): React.ReactElement {
         <div>
           <SearchList itemList={itemValue} />
         </div>
+      </div>
+      <div className="">
+        <Footer />
       </div>
     </div>
   );
