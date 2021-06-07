@@ -7,8 +7,12 @@
   /* @apply antialiased font-display bg-gray-900 text-white; */
 }
 
+#root {
+  @apply w-full bg-gray-dark;
+}
+
 ::-webkit-scrollbar {
-  width: 0.4rem;
+  width: 0rem;
 }
 
 ::-webkit-scrollbar-track {

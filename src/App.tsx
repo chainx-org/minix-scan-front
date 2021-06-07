@@ -1,9 +1,10 @@
 import React from "react";
 import Home from "../src/pages/page-homePage";
 
-const App: React.FC = () => {
+function App(): React.ReactElement {
+
   return (
-    <div>
+    <div className=' bg-gray-light'>
       <Home />
     </div>
   );

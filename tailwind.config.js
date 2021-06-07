@@ -7,9 +7,13 @@ module.exports = {
         light: "#fbfafc",
         dark: "#F2F5F9",
       },
+      blue: {
+        light: '#4572DE',
+      },
       black: {
         light: "#777777",
         dark: "#504862",
+        darker: '#272233',
       },
       white: {
         light: "#ffffff",
@@ -54,6 +58,9 @@ module.exports = {
       ...theme("colors"),
       default: "#EFEFEF",
       transparent: "transparent",
+      'card': '#EAECF7',
+      'listItem': '#EAECF7',
+      'lang': '#DEDEDE'
     }),
     borderRadius: {
       lg: ".5rem",
@@ -61,6 +68,7 @@ module.exports = {
       "2xl": "1rem",
       circle: "50%",
       rounded: ".25rem",
+      card: ".125rem",
     },
     customForms: (theme) => ({
       default: {
@@ -82,6 +90,11 @@ module.exports = {
       boxShadow: {
         ...boxShadow,
         outline: "0 0 0 3px rgba(239, 121, 48, 0.5)",
+        'card': '0px 1px 6px 0px rgba(0, 0, 0, 0.05)',
+      },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+       'listItem': '1.5fr 8.5fr',
       },
       margin: {
         auto: "auto",
@@ -95,6 +108,7 @@ module.exports = {
         6: "1.5rem",
         7: "1.75rem",
         7.5: "1.875rem",
+        8: '2rem',
         10: "2.5rem",
         12: "3rem",
         22.5: "5.625rem",
@@ -188,6 +202,7 @@ module.exports = {
         12: "3rem",
         13: "3.125rem",
         14: "3.5rem",
+        15: '3.75rem',
         18: "4.5625rem",
         20: "5rem",
         22: "5.5rem",
@@ -235,6 +250,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    borderWidth: ['last'],
+  },
   plugins: [require("@tailwindcss/custom-forms")],
 };

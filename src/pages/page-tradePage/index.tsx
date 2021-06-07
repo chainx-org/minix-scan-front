@@ -1,10 +1,13 @@
 import React from "react";
+import Footer from "../../components/Footer";
+import List from "../../components/List";
 
 function Trade(): React.ReactElement {
 
   return (
-      <div className=''>
-          Home
+      <div>
+        <List />
+        <Footer />
       </div>
   );
 }
