@@ -19,7 +19,27 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
     },
+    customForms: (theme) => ({
+      default: {
+        input: {
+          backgroundColor: theme("colors.gray.900"),
+          "&::placeholder": {
+            color: theme("colors.gray.500"),
+            opacity: "1",
+          },
+          "&:focus": {
+            outline: "none",
+            boxShadow: theme("boxShadow.none"),
+            borderColor: theme("colors.orange.500"),
+          },
+        },
+      },
+    }),
     extend: {
+      boxShadow: {
+        ...boxShadow,
+        outline: "0 0 0 3px rgba(239, 121, 48, 0.5)",
+      },
       margin: {
         auto: "auto",
         1: ".25rem",
@@ -156,28 +176,6 @@ module.exports = {
       lineHeight: {
         9.5: "2.375rem",
         12: "3rem",
-      },
-    },
-    customForms: (theme) => ({
-      default: {
-        input: {
-          backgroundColor: theme("colors.gray.900"),
-          "&::placeholder": {
-            color: theme("colors.gray.500"),
-            opacity: "1",
-          },
-          "&:focus": {
-            outline: "none",
-            boxShadow: theme("boxShadow.none"),
-            borderColor: theme("colors.orange.500"),
-          },
-        },
-      },
-    }),
-    extend: {
-      boxShadow: {
-        ...boxShadow,
-        outline: "0 0 0 3px rgba(239, 121, 48, 0.5)",
       },
     },
   },
