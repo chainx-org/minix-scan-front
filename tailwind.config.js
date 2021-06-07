@@ -5,7 +5,7 @@ module.exports = {
     colors: {
       gray: {
         light: "#fbfafc",
-        dark: "#f5f5f5",
+        dark: "#F2F5F9",
       },
       black: {
         light: "#777777",
@@ -137,6 +137,7 @@ module.exports = {
         17.75: "4.4375rem",
         20: "5rem",
         28: "7rem",
+        30: "6.625rem",
       },
       width: {
         fitContent: "fit-content",
@@ -163,7 +164,8 @@ module.exports = {
         130: "33.75rem",
         150: "36.25rem",
         152.5: "38.125rem",
-        "7/10": "70%",
+        // "7/10": "70%",
+        223: "13.93rem",
       },
       height: {
         fitContent: "fit-content",
@@ -181,13 +183,16 @@ module.exports = {
         10: "2.5rem",
         11: "2.75rem",
         12: "3rem",
+        13: "3.125rem",
         14: "3.5rem",
-        18: "4.5rem",
+        18: "4.5625rem",
         20: "5rem",
         22: "5.5rem",
         32: "8rem",
+        40: "10.18rem",
         54: "13.5rem",
         57: "14.25rem",
+        58: "14.5rem",
         62: "15.5rem",
         72.25: "18.0625rem",
         78.5: "19.625rem",
@@ -216,6 +221,14 @@ module.exports = {
       lineHeight: {
         9.5: "2.375rem",
         12: "3rem",
+        20: "1.25rem",
+      },
+      display: {
+        flex: "flex",
+        direction: {
+          row: "row",
+          column: "column",
+        },
       },
     },
   },
