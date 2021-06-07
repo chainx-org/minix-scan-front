@@ -2,6 +2,20 @@ const { boxShadow } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   theme: {
+    colors: {
+      gray: {
+        light: "#fbfafc",
+        dark: "#f5f5f5",
+      },
+      black: {
+        light: "#777777",
+        dark: "#504862",
+      },
+      white: {
+        light: "#ffffff",
+        dark: "#fbfafc",
+      },
+    },
     fontFamily: {
       display: [
         "Inter",
@@ -18,6 +32,32 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
+    },
+    fontSize: {
+      xs: ".75rem",
+      sm: ".875rem",
+      base: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
+      "6xl": "4rem",
+      "7xl": "5rem",
+      title: "2rem",
+    },
+    borderColor: (theme) => ({
+      ...theme("colors"),
+      default: "#EFEFEF",
+      transparent: "transparent",
+    }),
+    borderRadius: {
+      lg: ".5rem",
+      xl: ".75rem",
+      "2xl": "1rem",
+      circle: "50%",
+      rounded: ".25rem",
     },
     customForms: (theme) => ({
       default: {
