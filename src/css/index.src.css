@@ -4,7 +4,7 @@
 @tailwind components;
 
 :root {
-  @apply antialiased font-display bg-gray-900 text-white;
+  /* @apply antialiased font-display bg-gray-900 text-white; */
 }
 
 ::-webkit-scrollbar {
