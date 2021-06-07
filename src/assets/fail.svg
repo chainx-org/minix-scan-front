@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Combined Shape</title>
+    <g id="miniX" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02交易详情" transform="translate(-332.000000, -554.000000)" fill="#EC4848">
+            <path d="M340,554 C344.418278,554 348,557.581722 348,562 C348,566.418278 344.418278,570 340,570 C335.581722,570 332,566.418278 332,562 C332,557.581722 335.581722,554 340,554 Z M342.514157,558.228764 L340,560.743 L337.485843,558.228764 L336.228764,559.485843 L338.743,562 L336.228764,564.514157 L337.485843,565.771236 L340,563.257 L342.514157,565.771236 L343.771236,564.514157 L341.257,562 L343.771236,559.485843 L342.514157,558.228764 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>
