@@ -24,15 +24,21 @@ function Home(): React.ReactElement {
       value: "1",
     },
   ]);
+  let [isShowSearchList, setShowSearchList] = useState(false);
   const searchInput: Function = (value: any) => {
-    itemValue.map((item) => {
-      item.value = value;
-    });
-    setItemValue([...itemValue]);
+    if (value) {
+      setShowSearchList(true);
+      itemValue.map((item) => {
+        item.value = value;
+      });
+      setItemValue([...itemValue]);
+    } else {
+      setShowSearchList(false);
+    }
   };
 
   return (
-    <div className="bg-index-bg">
+    <div className="pt-40">
       <div className="w-150 h-40 flex flex-col mx-auto my-auto">
         <div className="w-223 h-18 justify-center mx-auto mb-10">
           <MinixIcon />
@@ -45,11 +51,9 @@ function Home(): React.ReactElement {
             searchInput={searchInput}
           />
         </div>
-        <div>
-          <SearchList itemList={itemValue} />
-        </div>
+        <div>{isShowSearchList && <SearchList itemList={itemValue} />}</div>
       </div>
-      <div className="">
+      <div className="fixed bottom-0">
         <Footer />
       </div>
     </div>
