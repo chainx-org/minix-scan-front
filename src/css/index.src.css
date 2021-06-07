@@ -8,7 +8,7 @@
 }
 
 #root {
-  @apply w-full bg-gray-dark;
+  /* @apply w-full bg-gray-dark; */
 }
 
 ::-webkit-scrollbar {

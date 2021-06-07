@@ -5,14 +5,14 @@ import searchIcon from "../../assets/search-24px.png";
 interface seachProps {
   icon: Boolean | String;
   loadingStatus: Boolean | any;
-  inputFun: Function;
+  searchInput: Function;
   searchFun: Function;
   onSearch?: Function;
 }
 function Search({
   icon,
   loadingStatus,
-  inputFun,
+  searchInput,
   searchFun,
   onSearch,
 }: seachProps): React.ReactElement<seachProps> {
@@ -26,7 +26,9 @@ function Search({
       prefix={SearchIcon}
       size="large"
       loading={loadingStatus}
-      onChange={() => inputFun()}
+      onChange={(e) => {
+        e.target.value = searchInput(e.target.value);
+      }}
       onPressEnter={() => searchFun()}
       onSearch={() => searchFun()}
       allowClear
