@@ -18,7 +18,7 @@ function Search({
 }: seachProps): React.ReactElement<seachProps> {
   const { Search } = Input;
   console.log("icon", icon);
-  const SearchIcon = icon ? <img src={searchIcon} /> : "1";
+  const SearchIcon = icon ? <img src={searchIcon} /> : "";
   return (
     <Search
       placeholder="搜索区块 / 交易 / CID / 账户"

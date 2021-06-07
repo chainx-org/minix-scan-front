@@ -156,6 +156,7 @@ module.exports = {
         20: "5rem",
         28: "7rem",
         30: "6.625rem",
+        40: "12.3125rem",
       },
       width: {
         fitContent: "fit-content",
@@ -181,6 +182,7 @@ module.exports = {
         60: "15rem",
         70: "17.5rem",
         73.75: "18.4375rem",
+        90: "22rem",
         130: "33.75rem",
         150: "36.25rem",
         152.5: "38.125rem",
@@ -252,7 +254,7 @@ module.exports = {
         },
       },
       backgroundImage: (theme) => ({
-        "index-bg": "url('./src/assets/background.png')",
+        indexBg: "url('./src/assets/background.png')",
       }),
     },
   },
