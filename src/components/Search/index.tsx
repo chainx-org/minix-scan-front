@@ -22,9 +22,7 @@ function Search({
   onSearch,
 }: seachProps): React.ReactElement<seachProps> {
   const { Search } = Input;
-  console.log("icon", icon);
   const SearchIcon = icon ? <img src={searchIcon} /> : "";
-  console.log("ClearIcon", ClearIcon);
   const ref = createRef<any>();
   const searchButton = useRef<any>(null);
   const clearIconControl = clear ? ClearIcon(searchButton) : "";

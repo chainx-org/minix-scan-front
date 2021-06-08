@@ -6,7 +6,6 @@ interface SearchListProps {
 function SearchList({
   itemList,
 }: SearchListProps): React.ReactElement<SearchListProps> {
-  console.log("itemList", itemList);
   return (
     <div className="h-58 pt-2.5  bg-white-light  overflow-y-scroll">
       {itemList.map((item, index) => {
