@@ -18,6 +18,9 @@ module.exports = {
         light: "#ffffff",
         dark: "#fbfafc",
       },
+      topBar: {
+        black: "#2F2F2F",
+      },
     },
     fontFamily: {
       display: [
@@ -38,6 +41,7 @@ module.exports = {
     },
     fontSize: {
       xs: ".75rem",
+      xms: ".8125rem",
       sm: ".875rem",
       base: "1rem",
       lg: "1.125rem",
@@ -154,12 +158,14 @@ module.exports = {
         15: "3.75rem",
         17.75: "4.4375rem",
         20: "5rem",
+        25: "5.75rem",
         28: "7rem",
         30: "6.625rem",
         40: "12.3125rem",
       },
       width: {
         fitContent: "fit-content",
+        overSpread: "100%",
         6: "1.5rem",
         7: "1.75rem",
         12: "3rem",
@@ -177,6 +183,7 @@ module.exports = {
         46: "11.5rem",
         47: "11.75rem",
         57: "14.25rem",
+        58: "14.875rem",
         50: "50rem",
         52.5: "52.5rem",
         60: "15rem",
@@ -191,6 +198,7 @@ module.exports = {
       },
       height: {
         fitContent: "fit-content",
+        overSpread: "100%",
         0.5: "0.125rem",
         2: "0.5rem",
         2.5: ".625rem",
@@ -245,6 +253,8 @@ module.exports = {
         9.5: "2.375rem",
         12: "3rem",
         20: "1.25rem",
+        22: "1.375rem",
+        25: "1.5rem",
       },
       display: {
         flex: "flex",
