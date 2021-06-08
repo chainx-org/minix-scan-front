@@ -1,7 +1,9 @@
 import React from "react";
 import Footer from "../../components/Footer";
 import List from "../../components/List";
-import BasicTable, { TableHead } from "../../components/Table";
+import SwitchTabs, { TabInfo } from "../../components/SwitchTabs";
+import Assets from "./Assets";
+import Transfer from "./Transfer";
 
 function Account(): React.ReactElement {
   const list = [
@@ -18,49 +20,28 @@ function Account(): React.ReactElement {
       content: <div className='text-black-dark'>237</div>,
     }
   ]
-  const columns: TableHead[] = [
+  const tabList: TabInfo[] = [
     {
       title: '资产',
-      dataIndex: 'assets',
-      key: 'assets',
+      content: <Assets />
     },
     {
-      title: '资产类别',
-      dataIndex: 'assetType',
-      key: 'assetType',
-    },
-    {
-      title: '数量',
-      dataIndex: 'amount',
-      key: 'amount',
-    },
-    {
-      title: '最近交易',
-      key: 'lastTrade',
-      dataIndex: 'lastTrade',
+      title: '转账',
+      content: <Transfer />
     }
   ];
-  const dataList = [
-    {
-      icon: '',
-      assets: 'CID666666',
-      assetType: 'NFT',
-      amount: '1',
-      lastTrade: '0x1234567890abc',
-    }
-  ]
-  const data = dataList.map((item)=>({
-    'assets': <div></div>,
-    'assetType': <div></div>,
-    'amount': <div></div>,
-    'lastTrade': <div></div>
-  }))
-  
 
+  const setList = (key: string) => {
+    console.log(key,'key')
+  };
   return (
     <div className=''>
       <List list={list} />
-      <BasicTable title='MiniX 资产' columns={columns} dataSource={data} size='large' pagination={false} />
+      <SwitchTabs
+        onTabClick={(key: string) => setList(key)}
+        size='lg'
+        tabList={tabList}
+      />
       <Footer />
     </div>
   );
