@@ -3,8 +3,10 @@ module.exports = {
   theme: {
     colors: {
       gray: {
-        light: "#fbfafc",
-        dark: "#F2F5F9",
+        lightest: '#C2C2C2',
+        lighter: '#F3F5F9',
+        light: "#f5f5f5",
+        dark: "#F8F9FA",
       },
       blue: {
         light: "#4572DE",
@@ -101,6 +103,7 @@ module.exports = {
       gridTemplateColumns: {
         // Simple 16 column grid
         listItem: "1.5fr 8.5fr",
+        card: '2fr 1fr'
       },
       margin: {
         auto: "auto",
@@ -153,6 +156,7 @@ module.exports = {
         6.5: "1.625rem",
         7: "1.75rem",
         7.5: "1.75rem",
+        8: '2rem',
         10: "2.5rem",
         11: "2.75rem",
         12: "3rem",
@@ -232,6 +236,7 @@ module.exports = {
         78.5: "19.625rem",
         80: "20rem",
         101.75: "25.4375rem",
+        105: '26.625rem',
         140: "34.25rem",
         150: "35rem",
         175: "39.75rem",
