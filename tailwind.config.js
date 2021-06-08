@@ -1,5 +1,4 @@
 const { boxShadow } = require("tailwindcss/defaultTheme");
-
 module.exports = {
   theme: {
     colors: {
@@ -8,16 +7,19 @@ module.exports = {
         dark: "#F2F5F9",
       },
       blue: {
-        light: '#4572DE',
+        light: "#4572DE",
       },
       black: {
         light: "#777777",
         dark: "#504862",
-        darker: '#272233',
+        darker: "#272233",
       },
       white: {
         light: "#ffffff",
         dark: "#fbfafc",
+      },
+      topBar: {
+        black: "#2F2F2F",
       },
     },
     fontFamily: {
@@ -39,6 +41,7 @@ module.exports = {
     },
     fontSize: {
       xs: ".75rem",
+      xms: ".8125rem",
       sm: ".875rem",
       base: "1rem",
       lg: "1.125rem",
@@ -58,11 +61,11 @@ module.exports = {
       ...theme("colors"),
       default: "#EFEFEF",
       transparent: "transparent",
-      'card': '#EAECF7',
-      'listItem': '#EAECF7',
-      'lang': '#DEDEDE',
-      'vote': '#272233',
-      'pledge': '#DADADA'
+      card: "#EAECF7",
+      listItem: "#EAECF7",
+      lang: "#DEDEDE",
+      vote: "#272233",
+      pledge: "#DADADA",
     }),
     borderRadius: {
       lg: ".5rem",
@@ -92,11 +95,11 @@ module.exports = {
       boxShadow: {
         ...boxShadow,
         outline: "0 0 0 3px rgba(239, 121, 48, 0.5)",
-        'card': '0px 1px 6px 0px rgba(0, 0, 0, 0.05)',
+        card: "0px 1px 6px 0px rgba(0, 0, 0, 0.05)",
       },
       gridTemplateColumns: {
         // Simple 16 column grid
-       'listItem': '1.5fr 8.5fr',
+        listItem: "1.5fr 8.5fr",
       },
       margin: {
         auto: "auto",
@@ -110,7 +113,7 @@ module.exports = {
         6: "1.5rem",
         7: "1.75rem",
         7.5: "1.875rem",
-        8: '2rem',
+        8: "2rem",
         10: "2.5rem",
         12: "3rem",
         22.5: "5.625rem",
@@ -155,16 +158,19 @@ module.exports = {
         15: "3.75rem",
         17.75: "4.4375rem",
         20: "5rem",
+        25: "5.75rem",
         28: "7rem",
         30: "6.625rem",
+        40: "12.3125rem",
       },
       width: {
         fitContent: "fit-content",
+        overSpread: "100%",
         6: "1.5rem",
         7: "1.75rem",
-        12: '3rem',
+        12: "3rem",
         14: "3.5rem",
-        18: '4.5rem',
+        18: "4.5rem",
         20: "5rem",
         21.25: "21.25rem",
         24.5: "6.125rem",
@@ -177,11 +183,13 @@ module.exports = {
         46: "11.5rem",
         47: "11.75rem",
         57: "14.25rem",
+        58: "14.875rem",
         50: "50rem",
         52.5: "52.5rem",
         60: "15rem",
         70: "17.5rem",
         73.75: "18.4375rem",
+        90: "22rem",
         130: "33.75rem",
         150: "36.25rem",
         152.5: "38.125rem",
@@ -190,6 +198,7 @@ module.exports = {
       },
       height: {
         fitContent: "fit-content",
+        overSpread: "100%",
         0.5: "0.125rem",
         2: "0.5rem",
         2.5: ".625rem",
@@ -206,7 +215,7 @@ module.exports = {
         12: "3rem",
         13: "3.125rem",
         14: "3.5rem",
-        15: '3.75rem',
+        15: "3.75rem",
         18: "4.5625rem",
         20: "5rem",
         22: "5.5rem",
@@ -244,6 +253,8 @@ module.exports = {
         9.5: "2.375rem",
         12: "3rem",
         20: "1.25rem",
+        22: "1.375rem",
+        25: "1.5rem",
       },
       display: {
         flex: "flex",
@@ -252,10 +263,13 @@ module.exports = {
           column: "column",
         },
       },
+      backgroundImage: (theme) => ({
+        indexBg: "url('./src/assets/background.png')",
+      }),
     },
   },
   variants: {
-    borderWidth: ['last'],
+    borderWidth: ["last"],
   },
   plugins: [require("@tailwindcss/custom-forms")],
 };

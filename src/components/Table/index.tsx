@@ -15,7 +15,6 @@ interface BasicTableProps {
   dataSource: TableData[];
   size: 'small' | 'middle' | 'large' | undefined;
   loading?: boolean;
-  pagination: boolean;
 }
 
 function BasicTable({className = '', columns, dataSource, size, loading }:BasicTableProps): React.ReactElement {
@@ -24,7 +23,7 @@ function BasicTable({className = '', columns, dataSource, size, loading }:BasicT
       <div className={`${className} w-full h-auto px-5 pb-10 bg-white-light  `}>
         <Table columns={columns} dataSource={dataSource} size={size} 
         // loading={loading} 
-        pagination={false} />
+        />
       </div>
   );
 }

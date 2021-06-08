@@ -109,7 +109,7 @@ function Transfer(): React.ReactElement {
 
     return (
         <div className=''>
-            <BasicTable columns={columns} dataSource={data} size='large' pagination={false} />
+            <BasicTable columns={columns} dataSource={data} size='large' />
         </div>
     );
 }
