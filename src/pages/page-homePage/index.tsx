@@ -1,35 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Search from "../../components/Search";
 import MinixIcon from "../../components/MinixIcon";
 import SearchList from "../../components/SearchList";
 import Footer from "../../components/Footer/index";
 import homeBg from "../../assets/background.png";
-
+import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 function Home(): React.ReactElement {
-  let [itemValue, setItemValue] = useState([
-    {
-      name: "#区块#",
-      value: "1",
-    },
-    {
-      name: "#账户#",
-      value: "2",
-    },
-    {
-      name: "#交易#",
-      value: "1",
-    },
-    {
-      name: "#CID#",
-      value: "1",
-    },
-  ]);
-  let [showClearIcon, setShowClearIcon] = useState(false);
+  const {
+    isShow,
+    isShowSearchList,
+    showClearIcon,
+    itemValue,
+    setIsShow,
+    setShowSearchList,
+    setShowClearIcon,
+    setItemValue,
+  } = useContext(ClearBtnContext);
   const homePageImage = {
-    backgroundSize: "100% 100%", //记得这里100%
     background: `url(${homeBg})`,
+    backgroundSize: "cover",
   };
-  let [isShowSearchList, setShowSearchList] = useState(false);
+  const searchFun: Function = (value: any) => {};
+
   const searchInput: Function = (value: any) => {
     if (value) {
       setShowSearchList(true);
@@ -43,8 +35,6 @@ function Home(): React.ReactElement {
       setShowClearIcon(false);
     }
   };
-  const searchFun: Function = (value: any) => {};
-
   return (
     <div className="pt-40 pb-50 h-overSpread" style={homePageImage}>
       <div className="w-150 h-40 flex flex-col mx-auto my-auto">
@@ -57,7 +47,7 @@ function Home(): React.ReactElement {
             clear={showClearIcon}
             clearFun={setItemValue}
             loadingStatus={false}
-            searchFun={searchFun}
+            searchFun={searchFun()}
             searchInput={searchInput}
           />
         </div>

@@ -4,9 +4,11 @@ import Header from "../../components/Header";
 import Search from "../../components/Search";
 import Footer from "../../components/Footer/index";
 import noData from "../../assets/img_search_none.png";
+
 function IndexSearch(): React.ReactElement {
   const searchFun = () => {};
   const searchInput = () => {};
+
   return (
     <div>
       <div>
