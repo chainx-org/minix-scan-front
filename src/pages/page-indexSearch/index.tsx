@@ -15,15 +15,16 @@ function IndexSearch(): React.ReactElement {
       <div className="w-overSpread py-6">
         <div className="w-150 h-13 mx-auto">
           {/* <TopSearchBar titleName="交易详情" /> */}
-          <Search
+          {/* <Search
             icon={true}
+            clear={false}
             loadingStatus={false}
             searchFun={searchFun}
             searchInput={searchInput}
-          />
+          /> */}
         </div>
       </div>
-      <div className="w-overSpread h-overSpread bg-gray-light pt-25">
+      {/* <div className="w-overSpread h-overSpread bg-gray-light pt-25">
         <div className="w-58 mx-auto">
           <img src={noData} />
           <div className="mt-6 leading-25 text-xms">
@@ -33,7 +34,7 @@ function IndexSearch(): React.ReactElement {
             <span>找不到相关数据</span>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="fixed bottom-0">
         <Footer />
       </div>
