@@ -125,4 +125,8 @@ html {
   border-right-width: 0px !important;
 }
 
+#searchButton {
+  border: orangered 1px solid;
+}
+
 @tailwind utilities;

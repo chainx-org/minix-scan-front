@@ -30,6 +30,7 @@ function Home(): React.ReactElement {
       });
       setItemValue([...itemValue]);
       setShowClearIcon(true);
+      return (value = "");
     } else {
       setShowSearchList(false);
       setShowClearIcon(false);

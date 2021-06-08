@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, createRef, useEffect } from "react";
 import { Input } from "antd";
 import searchIcon from "../../assets/search-24px.png";
 import ClearIcon from "../ClearIcon/index";
@@ -22,24 +22,28 @@ function Search({
   onSearch,
 }: seachProps): React.ReactElement<seachProps> {
   const { Search } = Input;
-  console.log("icon", icon);
   const SearchIcon = icon ? <img src={searchIcon} /> : "";
-  console.log("ClearIcon", ClearIcon);
-  const clearIconControl = clear ? ClearIcon() : "";
+  const ref = createRef<any>();
+  const searchButton = useRef<any>(null);
+  const clearIconControl = clear ? ClearIcon(searchButton) : "";
+
   return (
-    <Search
-      placeholder="搜索区块 / 交易 / CID / 账户"
-      enterButton="搜索"
-      prefix={SearchIcon}
-      size="large"
-      loading={loadingStatus}
-      onChange={(e) => {
-        e.target.value = searchInput(e.target.value);
-      }}
-      onPressEnter={() => searchFun()}
-      onSearch={() => searchFun()}
-      suffix={clearIconControl}
-    />
+    <div>
+      <Search
+        ref={searchButton}
+        placeholder="搜索区块 / 交易 / CID / 账户"
+        enterButton="搜索"
+        prefix={SearchIcon}
+        size="large"
+        loading={loadingStatus}
+        onChange={(e) => {
+          e.target.value = searchInput(e.target.value);
+        }}
+        onPressEnter={() => searchFun()}
+        onSearch={() => searchFun()}
+        suffix={clearIconControl}
+      />
+    </div>
   );
 }
 
