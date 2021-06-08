@@ -10,7 +10,50 @@
 #root {
   /* @apply w-full bg-gray-dark; */
 }
-
+html {
+  --antd-wave-shadow-color: #bfbfbf !important;
+}
+.ant-tabs-tab-btn {
+  font-size: 16px;
+  transition: none;
+  color: #bfbfbf;
+}
+.ui--switchTabs-lg .ant-tabs-ink-bar {
+  background: #040b38;
+}
+.ant-tabs-top > .ant-tabs-nav,
+.ant-tabs-bottom > .ant-tabs-nav,
+.ant-tabs-top > div > .ant-tabs-nav,
+.ant-tabs-bottom > div > .ant-tabs-nav {
+  margin: 0;
+}
+::selection {
+  color: #bfbfbf !important;
+  background: #fff !important;
+}
+.ant-table-cell {
+  font-size: 12px;
+}
+.ant-table-thead > tr > th {
+  color: #272233;
+  font-weight: 600;
+  background: #fff;
+  border-bottom: 0;
+  padding: 18px 6px;
+}
+.ant-table-thead > tr > th:last-child {
+  text-align: right;
+}
+.ant-table-tbody > .ant-table-row > .ant-table-cell:last-child {
+  text-align: right;
+}
+.ant-table-tbody > .ant-table-row > .ant-table-cell {
+  border-bottom: 0;
+  padding: 11px 10px;
+}
+.ant-table-tbody > .ant-table-row:nth-of-type(odd) {
+  background: #f2f5f9;
+}
 ::-webkit-scrollbar {
   /* width: 0rem; */
   width: 6px;
@@ -26,6 +69,21 @@
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: #aeaeae;
+}
+::-webkit-scrollbar-thumb:hover {
+}
+.ui--switchTabs-lg .ant-tabs-nav {
+  padding: 0 20px;
+}
+.ui--switchTabs-lg .ant-tabs-tab {
+  font-size: 16px;
+  color: #bfbfbf !important;
+}
+.ant-tabs-tab:hover {
+  color: #bfbfbf !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #272233;
 }
 
 .ant-input:focus {
