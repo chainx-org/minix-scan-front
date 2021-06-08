@@ -1,30 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Search from "../../components/Search";
 import MinixIcon from "../../components/MinixIcon";
 import SearchList from "../../components/SearchList";
-import { searchFun } from "../helper/SearchFun";
 import Footer from "../../components/Footer/index";
-
+import homeBg from "../../assets/background.png";
+import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 function Home(): React.ReactElement {
-  let [itemValue, setItemValue] = useState([
-    {
-      name: "#区块#",
-      value: "1",
-    },
-    {
-      name: "#账户#",
-      value: "2",
-    },
-    {
-      name: "#交易#",
-      value: "1",
-    },
-    {
-      name: "#CID#",
-      value: "1",
-    },
-  ]);
-  let [isShowSearchList, setShowSearchList] = useState(false);
+  const {
+    isShow,
+    isShowSearchList,
+    showClearIcon,
+    itemValue,
+    setIsShow,
+    setShowSearchList,
+    setShowClearIcon,
+    setItemValue,
+  } = useContext(ClearBtnContext);
+  const homePageImage = {
+    background: `url(${homeBg})`,
+    backgroundSize: "cover",
+  };
+  const searchFun: Function = (value: any) => {};
+
   const searchInput: Function = (value: any) => {
     if (value) {
       setShowSearchList(true);
@@ -32,13 +29,14 @@ function Home(): React.ReactElement {
         item.value = value;
       });
       setItemValue([...itemValue]);
+      setShowClearIcon(true);
     } else {
       setShowSearchList(false);
+      setShowClearIcon(false);
     }
   };
-
   return (
-    <div className="pt-40">
+    <div className="pt-40 pb-50 h-overSpread" style={homePageImage}>
       <div className="w-150 h-40 flex flex-col mx-auto my-auto">
         <div className="w-223 h-18 justify-center mx-auto mb-10">
           <MinixIcon />
@@ -46,12 +44,16 @@ function Home(): React.ReactElement {
         <div className="w-150 h-13 justify-center">
           <Search
             icon={true}
+            clear={showClearIcon}
+            clearFun={setItemValue}
             loadingStatus={false}
-            searchFun={searchFun}
+            searchFun={searchFun()}
             searchInput={searchInput}
           />
         </div>
-        <div>{isShowSearchList && <SearchList itemList={itemValue} />}</div>
+        <div className="w-100 shadow-sm">
+          {isShowSearchList && <SearchList itemList={itemValue} />}
+        </div>
       </div>
       <div className="fixed bottom-0">
         <Footer />

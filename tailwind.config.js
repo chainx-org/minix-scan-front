@@ -21,6 +21,9 @@ module.exports = {
       topBar: {
         black: "#2F2F2F",
       },
+      textColor: {
+        gray: " #504862;",
+      },
     },
     fontFamily: {
       display: [
@@ -54,9 +57,7 @@ module.exports = {
       "7xl": "5rem",
       title: "2rem",
     },
-    textColor: {
-      gray: " #504862;",
-    },
+
     borderColor: (theme) => ({
       ...theme("colors"),
       default: "#EFEFEF",
@@ -162,6 +163,7 @@ module.exports = {
         28: "7rem",
         30: "6.625rem",
         40: "12.3125rem",
+        50: "29.75rem",
       },
       width: {
         fitContent: "fit-content",
@@ -190,6 +192,7 @@ module.exports = {
         70: "17.5rem",
         73.75: "18.4375rem",
         90: "22rem",
+        100: "29.5rem",
         130: "33.75rem",
         150: "36.25rem",
         152.5: "38.125rem",

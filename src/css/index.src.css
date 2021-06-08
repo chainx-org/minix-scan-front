@@ -11,22 +11,25 @@
   /* @apply w-full bg-gray-dark; */
 }
 html {
-  --antd-wave-shadow-color: #BFBFBF !important;
+  --antd-wave-shadow-color: #bfbfbf !important;
 }
 .ant-tabs-tab-btn {
   font-size: 16px;
   transition: none;
-  color: #BFBFBF;
+  color: #bfbfbf;
 }
 .ui--switchTabs-lg .ant-tabs-ink-bar {
   background: #040b38;
 }
-.ant-tabs-top > .ant-tabs-nav, .ant-tabs-bottom > .ant-tabs-nav, .ant-tabs-top > div > .ant-tabs-nav, .ant-tabs-bottom > div > .ant-tabs-nav {
+.ant-tabs-top > .ant-tabs-nav,
+.ant-tabs-bottom > .ant-tabs-nav,
+.ant-tabs-top > div > .ant-tabs-nav,
+.ant-tabs-bottom > div > .ant-tabs-nav {
   margin: 0;
 }
 ::selection {
-  color: #BFBFBF !important;
-  background: #FFF !important;
+  color: #bfbfbf !important;
+  background: #fff !important;
 }
 .ant-table-cell {
   font-size: 12px;
@@ -52,22 +55,26 @@ html {
   color: #BFBFBF;
 }
 .ant-table-tbody > .ant-table-row:nth-of-type(odd) {
-  background: #F2F5F9;
+  background: #f2f5f9;
 }
 ::-webkit-scrollbar {
-  width: 0rem;
+  /* width: 0rem; */
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: 3px;
 }
-
 ::-webkit-scrollbar-thumb {
-  border-radius: 1rem;
+  border-radius: 3px;
+  background: #aeaeae;
 }
-
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #aeaeae;
+}
 ::-webkit-scrollbar-thumb:hover {
-} 
+}
 .ui--switchTabs-lg .ant-tabs-nav {
   padding: 0 20px;
 }
@@ -81,6 +88,7 @@ html {
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #272233;
 }
+
 .ant-input:focus {
   box-shadow: none;
 }
@@ -95,6 +103,15 @@ html {
   text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
   box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
   border-radius: 0px 8px 8px 0px !important;
+}
+
+.ant-input-group .ant-input {
+  height: 35px;
+}
+
+.ant-input-search-large .ant-input-search-button {
+  height: 50px;
+  z-index: 2;
 }
 .ant-input-affix-wrapper:focus,
 .ant-input-affix-wrapper-focused {
