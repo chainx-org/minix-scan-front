@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="17px" viewBox="0 0 16 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_detail</title>
+    <g id="miniX" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="05CID（NFT）详情" transform="translate(-884.000000, -410.000000)">
+            <g id="icon_detail" transform="translate(884.000000, 410.500000)">
+                <rect id="矩形" fill="#D8D8D8" opacity="0" x="0" y="-2.13162821e-14" width="16" height="16"></rect>
+                <rect id="矩形" fill="#040B38" x="1" y="1" width="14" height="14" rx="2"></rect>
+                <g id="编组-7" transform="translate(3.000000, 3.500000)">
+                    <rect id="矩形" stroke="#FFFFFF" fill="#040B38" x="0.5" y="0.5" width="3" height="3"></rect>
+                    <rect id="矩形" fill="#FFFFFF" x="5" y="1" width="5" height="2"></rect>
+                    <rect id="矩形备份" fill="#FFFFFF" x="5" y="6" width="5" height="2"></rect>
+                    <rect id="矩形" stroke="#FFFFFF" fill="#040B38" x="0.5" y="5.5" width="3" height="3"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

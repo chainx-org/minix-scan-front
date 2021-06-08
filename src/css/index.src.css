@@ -48,6 +48,9 @@ html {
   border-bottom: 0;
   padding: 11px 10px;
 }
+.ant-tabs-tab-btn:focus, .ant-tabs-tab-remove:focus, .ant-tabs-tab-btn:active, .ant-tabs-tab-remove:active {
+  color: #BFBFBF;
+}
 .ant-table-tbody > .ant-table-row:nth-of-type(odd) {
   background: #F2F5F9;
 }
@@ -70,10 +73,10 @@ html {
 }
 .ui--switchTabs-lg .ant-tabs-tab {
   font-size: 16px;
-  color: #BFBFBF !important;
+  color: #BFBFBF;
 }
 .ant-tabs-tab:hover {
-  color: #BFBFBF !important;
+  color: #BFBFBF;
 }
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #272233;
