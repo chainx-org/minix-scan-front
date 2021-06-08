@@ -1,17 +1,20 @@
 import React from "react";
+import Home from "../src/pages/page-homePage";
 import Account from "./pages/page-accountPage";
 import Trade from "./pages/page-tradePage";
-import Home from "../src/pages/page-homePage";
 import IndexSearch from "../src/pages/page-indexSearch";
+import {HashRouter, Switch, Route} from 'react-router-dom';
 
-function App(): React.ReactElement {
+const App: React.FC = () => {  
   return (
-    <div className=" bg-gray-light">
-      {/* <Home /> */}
-      {/* <Trade /> */}
-      {/* <Account /> */}
-      <IndexSearch />
-    </div>
+    <HashRouter>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/account" component={Account}/>
+          <Route path="/trade" component={Trade}/>
+          <Route path="/indexSearch" component={IndexSearch}/>
+        </Switch>
+    </HashRouter>
   );
 }
 

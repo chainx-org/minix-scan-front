@@ -99,7 +99,7 @@ function Transfer(): React.ReactElement {
     const data = dataList.map((item) => ({
         'blockHeight': <div>{item.blockHeight}</div>,
         'time': <div>{item.time}</div>,
-        'transferHash': <div>{item.transferHash}</div>,
+        'transferHash': <div className='text-blue-light'>{item.transferHash}</div>,
         'send': <div>{item.send}</div>,
         'receive': <div>{item.receive}</div>,
         'assets': <div>{item.assets}</div>,
