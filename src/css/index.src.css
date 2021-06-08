@@ -12,19 +12,22 @@
 }
 
 ::-webkit-scrollbar {
-  width: 0rem;
+  /* width: 0rem; */
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: 3px;
 }
-
 ::-webkit-scrollbar-thumb {
-  border-radius: 1rem;
+  border-radius: 3px;
+  background: #aeaeae;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #aeaeae;
 }
 
-::-webkit-scrollbar-thumb:hover {
-}
 .ant-input:focus {
   box-shadow: none;
 }
