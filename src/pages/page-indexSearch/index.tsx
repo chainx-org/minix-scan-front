@@ -34,9 +34,7 @@ function IndexSearch(): React.ReactElement {
   const searchFun: Function = (value: any) => {};
   return (
     <div>
-      <div>
-        <Header />
-      </div>
+      <Header />
       <div className="w-overSpread py-6" style={homePageImage}>
         <div className="w-150 h-13 mx-auto">
           <Search
@@ -61,9 +59,7 @@ function IndexSearch(): React.ReactElement {
           <span>找不到相关数据</span>
         </div>
       </div>
-      <div className="fixed bottom-0">
-        <Footer />
-      </div>
+      <Footer className="fixed bottom-0" />
     </div>
   );
 }
