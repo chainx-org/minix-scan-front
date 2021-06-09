@@ -1,4 +1,4 @@
-import React, { useRef, createRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { Input } from "antd";
 import searchIcon from "../../assets/search-24px.svg";
 import ClearIcon from "../ClearIcon/index";
@@ -17,17 +17,15 @@ function Search({
   icon,
   clear,
   loadingStatus,
-  clearFun,
   searchInput,
   searchFun,
-  onSearch,
   className,
 }: seachProps): React.ReactElement<seachProps> {
   const { Search } = Input;
   const SearchIcon = icon ? <img src={searchIcon} /> : "";
-  const ref = createRef<any>();
+  // const ref = createRef<any>();
   const searchButton = useRef<any>(null);
-  const clearIconControl = clear ? ClearIcon(searchButton) : "";
+  const clearIconControl = clear ? ClearIcon(searchButton) : ClearIcon();
 
   return (
     <div className={className}>

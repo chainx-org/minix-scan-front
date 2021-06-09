@@ -7,11 +7,9 @@ import homeBg from "../../assets/background.png";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 function Home(): React.ReactElement {
   const {
-    isShow,
     isShowSearchList,
     showClearIcon,
     itemValue,
-    setIsShow,
     setShowSearchList,
     setShowClearIcon,
     setItemValue,
@@ -20,7 +18,12 @@ function Home(): React.ReactElement {
     background: `url(${homeBg})`,
     backgroundSize: "cover",
   };
-  const searchFun: Function = (value: any) => {};
+
+  const [inputValue, setInputValue] = useState("");
+
+  const searchFun: Function = () => {
+    console.log(inputValue);
+  };
 
   const searchInput: Function = (value: any) => {
     if (value) {
@@ -28,6 +31,7 @@ function Home(): React.ReactElement {
       itemValue.map((item) => {
         item.value = value;
       });
+      setInputValue(value);
       setItemValue([...itemValue]);
       setShowClearIcon(true);
       return (value = "");
@@ -50,7 +54,7 @@ function Home(): React.ReactElement {
               clear={showClearIcon}
               clearFun={setItemValue}
               loadingStatus={false}
-              searchFun={searchFun()}
+              searchFun={searchFun}
               searchInput={searchInput}
             />
           </div>

@@ -2,13 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import Header from "../../components/Header";
 import Search from "../../components/Search";
 import Footer from "../../components/Footer/index";
+import SearchList from "../../components/SearchList";
 import noData from "../../assets/img_search_none.svg";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import homeBg from "../../assets/background2.png";
 function IndexSearch(): React.ReactElement {
   const {
+    isShow,
+    isShowSearchList,
     showClearIcon,
     itemValue,
+    setIsShow,
     setShowSearchList,
     setShowClearIcon,
     setItemValue,
@@ -47,6 +51,9 @@ function IndexSearch(): React.ReactElement {
             searchInput={searchInput}
           />
         </div>
+      </div>
+      <div className="w-100 shadow-sm mt-3 rounded-rounded">
+        {isShowSearchList && <SearchList itemList={itemValue} />}
       </div>
       <div className="w-overSpread h-overSpread bg-gray-light pt-25">
         <div className="w-58 mx-auto ">
