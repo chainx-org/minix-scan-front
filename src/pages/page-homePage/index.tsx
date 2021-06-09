@@ -37,30 +37,30 @@ function Home(): React.ReactElement {
     }
   };
   return (
-    <div className="pt-40 pb-50 h-overSpread" style={homePageImage}>
-      <div className="w-150 h-40 flex flex-col mx-auto my-auto">
-        <div className="w-223 h-18 justify-center mx-auto mb-10">
-          <MinixIcon />
-        </div>
-        <div className="w-150 h-13 justify-center">
-          <Search
-            className={"Search"}
-            icon={true}
-            clear={showClearIcon}
-            clearFun={setItemValue}
-            loadingStatus={false}
-            searchFun={searchFun()}
-            searchInput={searchInput}
-          />
-        </div>
-        <div className="w-100 shadow-sm mt-3 rounded-rounded">
-          {isShowSearchList && <SearchList itemList={itemValue} />}
+    <>
+      <div className="pt-40 h-overSpread" style={homePageImage}>
+        <div className="w-150 h-40 flex flex-col mx-auto my-auto">
+          <div className="w-223 h-18 justify-center mx-auto mb-10">
+            <MinixIcon />
+          </div>
+          <div className="w-150 h-13 justify-center">
+            <Search
+              className={"Search"}
+              icon={true}
+              clear={showClearIcon}
+              clearFun={setItemValue}
+              loadingStatus={false}
+              searchFun={searchFun()}
+              searchInput={searchInput}
+            />
+          </div>
+          <div className="w-100 shadow-sm mt-3 rounded-rounded">
+            {isShowSearchList && <SearchList itemList={itemValue} />}
+          </div>
         </div>
       </div>
-      <div className="fixed bottom-0">
-        <Footer />
-      </div>
-    </div>
+      <Footer className="fixed bottom-0" />
+    </>
   );
 }
 
