@@ -17,7 +17,7 @@ function TopSearchBar({
       <div className="w-90">
         <Search
           className={"topSearch"}
-          icon={true}
+          icon={false}
           clear={false}
           loadingStatus={false}
           searchFun={searchFun}

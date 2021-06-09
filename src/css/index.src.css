@@ -4,7 +4,7 @@
 @tailwind components;
 
 :root {
-  @apply bg-gray-light text-xs;
+  /* @apply bg-gray-light text-xs; */
 }
 
 #root {
@@ -121,7 +121,7 @@ html {
   line-height: 14px;
 }
 .topSearch .ant-input-group .ant-input {
-  height: 25px;
+  height: 40px;
   /* height: 14px; */
   font-size: 12px;
   font-family: PingFangSC-Medium, PingFang SC;
