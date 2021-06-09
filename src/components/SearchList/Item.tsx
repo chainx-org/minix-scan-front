@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+
 interface itemProps {
   itemTitle: String;
-  itemValue: String;
+  inputValue: String;
 }
 
 function Item({
   itemTitle,
-  itemValue,
+  inputValue,
 }: itemProps): React.ReactElement<itemProps> {
+  console.log("inputValue", inputValue);
   return (
     <div className="h-10 py-2.5 text-gray hover:bg-gray-dark">
       <span className="text-base ml-4 leading-20 ">
         {itemTitle}
-        {itemValue}
+        {inputValue}
       </span>
     </div>
   );
