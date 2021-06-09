@@ -15,7 +15,6 @@ function SearchList({
           <div className="item" key={index}>
             <div className="item-left">
               <Item itemTitle={item} inputValue={inputValue} />
-              {/* <Item itemTitle={item.name} itemValue={item.value} /> */}
             </div>
           </div>
         );
