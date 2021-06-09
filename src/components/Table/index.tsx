@@ -20,7 +20,7 @@ interface BasicTableProps {
 function BasicTable({className = '', columns, dataSource, size, loading }:BasicTableProps): React.ReactElement {
 
   return (
-      <div className={`${className} w-full h-auto px-5 pb-10 bg-white-light  `}>
+      <div className={`${className} w-full h-auto px-5 pb-4 bg-white-light  `}>
         <Table columns={columns} dataSource={dataSource} size={size} 
         // loading={loading} 
         />
