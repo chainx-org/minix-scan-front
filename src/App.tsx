@@ -4,6 +4,7 @@ import Account from "./pages/page-accountPage";
 import Trade from "./pages/page-tradePage";
 import NFTDetail from "./pages/page-nftDetailPage";
 import IndexSearch from "../src/pages/page-indexSearch";
+import Block from "./pages/page-blockPage";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import { ClearBtnProvider } from "./hooks/ClearBtnProvider";
 import { InputProvider } from "./hooks/InputProvider";

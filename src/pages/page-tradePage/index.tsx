@@ -5,6 +5,7 @@ import Succeed from "../../assets/succeed.svg";
 import Fail from "../../assets/fail.svg";
 import TopSearchBar from "../../components/TopSearch";
 import Header from "../../components/Header";
+import FlexDiv from "../../components/FlexDiv";
 
 function Trade(): React.ReactElement {
   const list = [
@@ -100,12 +101,14 @@ function Trade(): React.ReactElement {
     },
   ];
   return (
-    <div>
+    <FlexDiv>
       <Header />
       <TopSearchBar titleName="交易详情" />
-      <List list={list} />
+      <div className='px-12 pb-6 bg-gray-light'>
+        <List list={list} />
+      </div>
       <Footer />
-    </div>
+    </FlexDiv>
   );
 }
 
