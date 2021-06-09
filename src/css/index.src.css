@@ -4,12 +4,9 @@
 @tailwind components;
 
 :root {
-  @apply bg-gray-light text-xs;
+  /* @apply bg-gray-light; */
 }
 
-#root {
-  /* @apply w-full bg-gray-dark; */
-}
 html {
   --antd-wave-shadow-color: #bfbfbf !important;
 }
@@ -60,12 +57,44 @@ html {
 .ant-table-tbody > .ant-table-row:nth-of-type(odd) {
   background: #f2f5f9;
 }
-
+.ant-pagination .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-pagination-item.ant-pagination-item-active{
+  background: #040B38;
+  border-radius: 2px;
+  font-size: 14px;
+  border: 1px solid #E3E3E3;
+}
+.ant-pagination-item-active a {
+  color: #FFFFFF;
+}
+.ant-pagination-item:focus-visible, .ant-pagination-item:hover {
+  border-color: #040B38;
+  color: #040b38;
+  transition: all 0.3s;
+}
+.ant-pagination-item:focus-visible a, .ant-pagination-item a:hover {
+  color: #040b38;
+}
+.ant-pagination-item-active:focus-visible a, .ant-pagination-item-active a:hover {
+  color: #fff;
+}
+.ant-pagination-prev:focus-visible .ant-pagination-item-link, .ant-pagination-next:focus-visible .ant-pagination-item-link, .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link {
+  border-color: #040B38;
+  color: #040b38;
+}
+.ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon {
+  color: #040b38;
+}
+.ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next { 
+  line-height: 26px;
+}
 ::-webkit-scrollbar {
-  /* width: 0rem; */
   width: 6px;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 3px;

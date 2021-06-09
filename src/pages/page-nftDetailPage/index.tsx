@@ -65,7 +65,18 @@ function NFTDetail(): React.ReactElement {
                 </Card>
                 <Card children={<CIDdetail />}/>
             </div>
-            <Card title='交易记录' children={<BasicTable columns={columns} dataSource={data} size='large' />} />
+            <Card title='交易记录' children={
+                <BasicTable 
+                    columns={columns} 
+                    dataSource={data} 
+                    size='large' 
+                    pagination={{
+                        defaultPageSize: 5,
+                        hideOnSinglePage: true,
+                        showSizeChanger: false
+                    }}
+                />
+            }/>
         </div>
         <Footer />
     </>
