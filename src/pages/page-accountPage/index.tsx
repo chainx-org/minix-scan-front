@@ -46,7 +46,7 @@ function Account(): React.ReactElement {
       <Header />
       <TopSearchBar titleName="账户详情" />
       <div className='px-12 pb-6 bg-gray-light'>
-        <List list={list} />
+        <List list={list} loading={false} />
         <Card children={<SwitchTabs size="lg" tabList={tabList}/>} className='mt-6' />
       </div>
       <Footer />

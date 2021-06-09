@@ -2,6 +2,7 @@ import React, { useRef, createRef, useEffect } from "react";
 import { Input } from "antd";
 import searchIcon from "../../assets/search-24px.svg";
 import ClearIcon from "../ClearIcon/index";
+import { Link } from "react-router-dom";
 
 interface seachProps {
   icon: Boolean | String;
@@ -34,7 +35,7 @@ function Search({
       <Search
         ref={searchButton}
         placeholder="搜索区块 / 交易 / CID / 账户"
-        enterButton="搜索"
+        enterButton={<Link to='/trade'>搜索</Link>}
         prefix={SearchIcon}
         size="large"
         loading={loadingStatus}
