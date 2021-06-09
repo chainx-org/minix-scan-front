@@ -100,14 +100,12 @@ function Trade(): React.ReactElement {
     },
   ];
   return (
-    <div>
-      <div>
-        <Header />
-      </div>
+    <>
+      <Header />
       <TopSearchBar titleName="交易详情" />
       <List list={list} />
       <Footer />
-    </div>
+    </>
   );
 }
 
