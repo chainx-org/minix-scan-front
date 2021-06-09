@@ -41,7 +41,7 @@ function Account(): React.ReactElement {
     console.log(key, "key");
   };
   return (
-    <div className="">
+    <>
       <List list={list} />
       <SwitchTabs
         onTabClick={(key: string) => setList(key)}
@@ -49,7 +49,7 @@ function Account(): React.ReactElement {
         tabList={tabList}
       />
       <Footer />
-    </div>
+    </>
   );
 }
 

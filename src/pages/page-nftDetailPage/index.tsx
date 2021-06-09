@@ -1,7 +1,9 @@
 import React from "react";
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import BasicTable, { TableHead } from "../../components/Table";
+import TopSearchBar from "../../components/TopSearch";
 import CIDdetail from "./CIDdetail";
 
 function NFTDetail(): React.ReactElement {
@@ -58,6 +60,8 @@ function NFTDetail(): React.ReactElement {
 
     return (
     <>
+        <Header />
+        <TopSearchBar titleName="交易详情" />
         <div className='mx-12'>
             <div className='grid grid-cols-card mb-6'>
                 <Card className='mr-6'>
