@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import Search from "../Search";
-import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import SearchList from "../../components/SearchList";
+import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
+import { InputContext } from "../../hooks/InputProvider";
 
 interface IndexProps {
   titleName: String;
@@ -19,8 +20,8 @@ function TopSearchBar({
     setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
-  const searchFun = () => {};
-  const searchInput = () => {};
+  const { searchInput, searchFun, directTo } = useContext(InputContext);
+
   return (
     <>
       <div className="flex justify-between px-12 py-3">
@@ -30,17 +31,19 @@ function TopSearchBar({
         <div className="w-90">
           <Search
             className={"topSearch"}
-            icon={false}
-            clear={false}
+            icon={true}
+            clear={showClearIcon}
+            clearFun={setItemValue}
             loadingStatus={false}
             searchFun={searchFun}
             searchInput={searchInput}
+            directTo={directTo}
           />
         </div>
       </div>
-      <div className="w-100 shadow-sm mt-3 rounded-rounded">
+      {/* <div className="w-100 shadow-sm mt-3 rounded-rounded">
         {isShowSearchList && <SearchList itemList={itemValue} />}
-      </div>
+      </div> */}
     </>
   );
 }

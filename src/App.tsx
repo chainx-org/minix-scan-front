@@ -6,19 +6,22 @@ import NFTDetail from "./pages/page-nftDetailPage";
 import IndexSearch from "../src/pages/page-indexSearch";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import { ClearBtnProvider } from "./hooks/ClearBtnProvider";
+import { InputProvider } from "./hooks/InputProvider";
 
 const App: React.FC = () => {
   return (
     <HashRouter>
-        <ClearBtnProvider>
+      <ClearBtnProvider>
+        <InputProvider>
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/account" component={Account} />
             <Route path="/trade" component={Trade} />
-            <Route path='/NFTDetail' component={NFTDetail} />
+            <Route path="/NFTDetail" component={NFTDetail} />
             <Route path="/indexSearch" component={IndexSearch} />
           </Switch>
-        </ClearBtnProvider>
+        </InputProvider>
+      </ClearBtnProvider>
     </HashRouter>
   );
 };
