@@ -44,6 +44,7 @@ function Home(): React.ReactElement {
         </div>
         <div className="w-150 h-13 justify-center">
           <Search
+            className={"Search"}
             icon={true}
             clear={showClearIcon}
             clearFun={setItemValue}
@@ -52,7 +53,7 @@ function Home(): React.ReactElement {
             searchInput={searchInput}
           />
         </div>
-        <div className="w-100 shadow-sm">
+        <div className="w-100 shadow-sm mt-3 rounded-rounded">
           {isShowSearchList && <SearchList itemList={itemValue} />}
         </div>
       </div>

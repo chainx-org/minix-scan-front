@@ -12,10 +12,10 @@ const App: React.FC = () => {
       <Switch>
         <ClearBtnProvider>
           <Route path="/" exact component={Home} />
+          <Route path="/account" component={Account} />
+          <Route path="/trade" component={Trade} />
+          <Route path="/indexSearch" component={IndexSearch} />
         </ClearBtnProvider>
-        <Route path="/account" component={Account} />
-        <Route path="/trade" component={Trade} />
-        <Route path="/indexSearch" component={IndexSearch} />
       </Switch>
     </HashRouter>
   );

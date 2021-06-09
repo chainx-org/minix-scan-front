@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import clearIcon from "../../assets/close-24px.png";
+import clearIcon from "../../assets/close-24px.svg";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 
 function ClearIcon(

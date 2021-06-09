@@ -1,6 +1,6 @@
 import React, { useRef, createRef, useEffect } from "react";
 import { Input } from "antd";
-import searchIcon from "../../assets/search-24px.png";
+import searchIcon from "../../assets/search-24px.svg";
 import ClearIcon from "../ClearIcon/index";
 
 interface seachProps {
@@ -11,6 +11,7 @@ interface seachProps {
   searchInput: Function;
   searchFun: Function;
   onSearch?: Function;
+  className?: any;
 }
 function Search({
   icon,
@@ -20,6 +21,7 @@ function Search({
   searchInput,
   searchFun,
   onSearch,
+  className,
 }: seachProps): React.ReactElement<seachProps> {
   const { Search } = Input;
   const SearchIcon = icon ? <img src={searchIcon} /> : "";
@@ -28,7 +30,7 @@ function Search({
   const clearIconControl = clear ? ClearIcon(searchButton) : "";
 
   return (
-    <div>
+    <div className={className}>
       <Search
         ref={searchButton}
         placeholder="搜索区块 / 交易 / CID / 账户"

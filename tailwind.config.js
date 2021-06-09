@@ -97,6 +97,7 @@ module.exports = {
         ...boxShadow,
         outline: "0 0 0 3px rgba(239, 121, 48, 0.5)",
         card: "0px 1px 6px 0px rgba(0, 0, 0, 0.05)",
+        sm: "0px 2px 16px 0px rgba(0, 0, 0, 0.12);",
       },
       gridTemplateColumns: {
         // Simple 16 column grid

@@ -51,8 +51,11 @@ html {
   border-bottom: 0;
   padding: 11px 10px;
 }
-.ant-tabs-tab-btn:focus, .ant-tabs-tab-remove:focus, .ant-tabs-tab-btn:active, .ant-tabs-tab-remove:active {
-  color: #BFBFBF;
+.ant-tabs-tab-btn:focus,
+.ant-tabs-tab-remove:focus,
+.ant-tabs-tab-btn:active,
+.ant-tabs-tab-remove:active {
+  color: #bfbfbf;
 }
 .ant-table-tbody > .ant-table-row:nth-of-type(odd) {
   background: #f2f5f9;
@@ -80,10 +83,10 @@ html {
 }
 .ui--switchTabs-lg .ant-tabs-tab {
   font-size: 16px;
-  color: #BFBFBF;
+  color: #bfbfbf;
 }
 .ant-tabs-tab:hover {
-  color: #BFBFBF;
+  color: #bfbfbf;
 }
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #272233;
@@ -105,14 +108,56 @@ html {
   border-radius: 0px 8px 8px 0px !important;
 }
 
-.ant-input-group .ant-input {
-  height: 35px;
+.topSearch .ant-btn-primary {
+  width: 96px;
+}
+.topSearch .ant-btn > span {
+  height: 14px;
+  font-size: 12px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 14px;
+}
+.topSearch .ant-input-group .ant-input {
+  height: 25px;
+  /* height: 14px; */
+  font-size: 12px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #504862;
+  line-height: 14px;
 }
 
-.ant-input-search-large .ant-input-search-button {
+.topSearch .ant-input-search-large .ant-input-search-button {
+  height: 40px;
+  z-index: 2;
+}
+.Search .ant-btn-primary {
+  width: 110px;
+}
+.Search .ant-btn > span {
+  height: 14px;
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 14px;
+}
+.Search .ant-input-group .ant-input {
+  height: 35px;
+  font-size: 14px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #504862;
+  line-height: 14px;
+}
+
+.Search .ant-input-search-large .ant-input-search-button {
   height: 50px;
   z-index: 2;
 }
+
 .ant-input-affix-wrapper:focus,
 .ant-input-affix-wrapper-focused {
   border-color: #d9d9d9 !important;
