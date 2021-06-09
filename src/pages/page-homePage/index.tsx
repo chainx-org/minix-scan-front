@@ -1,41 +1,27 @@
 import React, { useState, useEffect, useContext } from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import Search from "../../components/Search";
 import MinixIcon from "../../components/MinixIcon";
 import SearchList from "../../components/SearchList";
 import Footer from "../../components/Footer/index";
 import homeBg from "../../assets/background.png";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
+import { InputContext } from "../../hooks/InputProvider";
 function Home(): React.ReactElement {
   const {
-    isShow,
     isShowSearchList,
     showClearIcon,
     itemValue,
-    setIsShow,
     setShowSearchList,
     setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
+  const { searchInput, searchFun, directTo } = useContext(InputContext);
   const homePageImage = {
     background: `url(${homeBg})`,
     backgroundSize: "cover",
   };
-  const searchFun: Function = (value: any) => {};
 
-  const searchInput: Function = (value: any) => {
-    if (value) {
-      setShowSearchList(true);
-      itemValue.map((item) => {
-        item.value = value;
-      });
-      setItemValue([...itemValue]);
-      setShowClearIcon(true);
-      return (value = "");
-    } else {
-      setShowSearchList(false);
-      setShowClearIcon(false);
-    }
-  };
   return (
     <>
       <div className="pt-40 h-overSpread" style={homePageImage}>
@@ -50,8 +36,9 @@ function Home(): React.ReactElement {
               clear={showClearIcon}
               clearFun={setItemValue}
               loadingStatus={false}
-              searchFun={searchFun()}
+              searchFun={searchFun}
               searchInput={searchInput}
+              directTo={directTo}
             />
           </div>
           <div className="w-100 shadow-sm mt-3 rounded-rounded">

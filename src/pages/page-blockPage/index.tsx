@@ -128,8 +128,8 @@ function Block(): React.ReactElement {
             <Header />
             <TopSearchBar titleName={`区块高度# +${'67812'}`} />
             <div className='px-12 pb-6 bg-gray-light'>
-                <List list={list} />
-                <Card title='交易列表' className='mt-6' children={ <BasicTable columns={columns} dataSource={data} size='large'
+                <List list={list} loading={false} />
+                <Card title='交易列表' className='mt-6' children={ <BasicTable columns={columns} dataSource={data} size='large' loading={false}
                         pagination={{
                             defaultPageSize: 5,
                             hideOnSinglePage: true,

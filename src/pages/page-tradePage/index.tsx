@@ -105,7 +105,7 @@ function Trade(): React.ReactElement {
       <Header />
       <TopSearchBar titleName="交易详情" />
       <div className='px-12 pb-6 bg-gray-light'>
-        <List list={list} />
+        <List list={list} loading={false} />
       </div>
       <Footer />
     </FlexDiv>
