@@ -3,10 +3,11 @@ import clearIcon from "../../assets/close-24px.svg";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 
 function ClearIcon(
-  searchButton: React.MutableRefObject<any>
+  searchButton?: React.MutableRefObject<any>
 ): React.ReactElement {
-  const { isShow, setItemValue, setShowSearchList, setShowClearIcon } =
+  const { setItemValue, setShowSearchList, setShowClearIcon } =
     useContext(ClearBtnContext);
+  console.log("searchButton", searchButton);
   const clearInputFun = () => {
     let initData = [
       {
@@ -26,15 +27,16 @@ function ClearIcon(
         value: "",
       },
     ];
+
+    if (searchButton) {
+      searchButton.current.state.value = "";
+    }
     setItemValue(initData);
     setShowSearchList(false);
     setShowClearIcon(false);
-    searchButton.current.state.value = "";
   };
   return (
-    <div>
-      <img src={clearIcon} onClick={clearInputFun}></img>
-    </div>
+    <>{searchButton && <img src={clearIcon} onClick={clearInputFun}></img>}</>
   );
 }
 

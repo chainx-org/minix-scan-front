@@ -159,6 +159,9 @@ html {
   box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
   border-radius: 0px 8px 8px 0px !important;
 }
+.ant-input-suffix {
+  cursor: pointer;
+}
 
 .topSearch .ant-btn-primary {
   width: 96px;
@@ -172,7 +175,7 @@ html {
   line-height: 14px;
 }
 .topSearch .ant-input-group .ant-input {
-  height: 40px;
+  height: 25px;
   /* height: 14px; */
   font-size: 12px;
   font-family: PingFangSC-Medium, PingFang SC;
