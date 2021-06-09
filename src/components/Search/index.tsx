@@ -5,6 +5,7 @@ import ClearIcon from "../ClearIcon/index";
 import { InputContext } from "../../hooks/InputProvider";
 import SearchList from "../../components/SearchList/index";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
+import { Link } from "react-router-dom";
 
 interface seachProps {
   icon: Boolean | String;

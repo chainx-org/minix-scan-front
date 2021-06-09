@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import React from "react";
 import ListItem from "./ListItem";
 
@@ -8,15 +9,16 @@ interface Item {
 interface ListProps {
     className?: string;
     children?: React.ReactNode;
-    list: Item[]
+    list: Item[];
+    loading: boolean;
 }
-function List({ className = '', list }: ListProps): React.ReactElement {
+function List({ className = '', list, loading }: ListProps): React.ReactElement {
 
     return (
-        <div className={`${className} px-5 pb-4 bg-white-light shadow-card border border-b-card rounded-card`}>
+        <div className={`px-5 pb-4 bg-white-light shadow-card border border-b-card rounded-card`}>
             {
                 list.map((item) => {
-                    return <ListItem title={item.title} content={item.content} />
+                    return <ListItem title={item.title} content={item.content} loading={loading}/>
                 })
             }
         </div>
