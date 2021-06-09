@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>close-24px</title>
+    <g id="miniX" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-首页搜索2" transform="translate(-776.000000, -323.000000)">
+            <g id="编组-2" transform="translate(350.500000, 310.000000)">
+                <g id="close-24px" transform="translate(426.000000, 13.000000)">
+                    <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                    <rect id="矩形" fill="#B2B2B2" transform="translate(12.000000, 12.000000) rotate(-315.000000) translate(-12.000000, -12.000000) " x="11.0206287" y="0.981977244" width="1.95874255" height="22.0360455"></rect>
+                    <rect id="矩形" fill="#B2B2B2" transform="translate(12.000000, 12.000000) scale(-1, 1) rotate(-315.000000) translate(-12.000000, -12.000000) " x="11.0206287" y="0.981977244" width="1.95874255" height="22.0360455"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
