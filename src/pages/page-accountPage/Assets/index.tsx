@@ -61,6 +61,7 @@ function Assets(): React.ReactElement {
         columns={columns} 
         dataSource={data} 
         size='large' 
+        loading={false}
         pagination={{
           defaultPageSize: 5,
           hideOnSinglePage: true,
