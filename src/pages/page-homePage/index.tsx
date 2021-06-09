@@ -16,7 +16,8 @@ function Home(): React.ReactElement {
     setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
-  const { searchInput, searchFun, directTo } = useContext(InputContext);
+  const { searchInput, searchFun, directTo, inputValue } =
+    useContext(InputContext);
   const homePageImage = {
     background: `url(${homeBg})`,
     backgroundSize: "cover",
@@ -39,11 +40,12 @@ function Home(): React.ReactElement {
               searchFun={searchFun}
               searchInput={searchInput}
               directTo={directTo}
+              mr={24}
             />
           </div>
-          <div className="w-100 shadow-sm mt-3 rounded-rounded">
+          {/* <div className="w-100 shadow-sm mt-3 rounded-rounded">
             {isShowSearchList && <SearchList itemList={itemValue} />}
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer className="fixed bottom-0" />

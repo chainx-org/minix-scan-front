@@ -38,12 +38,10 @@ function IndexSearch(): React.ReactElement {
             searchFun={searchFun}
             searchInput={searchInput}
             directTo={directTo}
+            mr={24}
           />
         </div>
       </div>
-      {/* <div className="w-100 shadow-sm mt-3 rounded-rounded">
-        {isShowSearchList && <SearchList itemList={itemValue} />}
-      </div> */}
       <div className="w-overSpread h-overSpread bg-gray-light pt-25">
         <div className="w-58 mx-auto ">
           <img src={noData} style={{ border: "1px dashed" }} />

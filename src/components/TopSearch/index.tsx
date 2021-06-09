@@ -38,12 +38,10 @@ function TopSearchBar({
             searchFun={searchFun}
             searchInput={searchInput}
             directTo={directTo}
+            mr={23}
           />
         </div>
       </div>
-      {/* <div className="w-100 shadow-sm mt-3 rounded-rounded">
-        {isShowSearchList && <SearchList itemList={itemValue} />}
-      </div> */}
     </>
   );
 }
