@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../../components/Card";
+import FlexDiv from "../../components/FlexDiv";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import BasicTable, { TableHead } from "../../components/Table";
@@ -59,31 +60,25 @@ function NFTDetail(): React.ReactElement {
     }))
 
     return (
-    <>
+    <FlexDiv>
         <Header />
-        <TopSearchBar titleName="交易详情" />
-        <div className='mx-12'>
+        <TopSearchBar titleName="NFT详情" />
+        <div className='px-12 pb-6 bg-gray-light'>
             <div className='grid grid-cols-card mb-6'>
-                <Card className='mr-6'>
-                    <div className=''></div>
-                </Card>
+                <Card className='mr-6' />
                 <Card children={<CIDdetail />}/>
             </div>
             <Card title='交易记录' children={
-                <BasicTable 
-                    columns={columns} 
-                    dataSource={data} 
-                    size='large' 
+                <BasicTable columns={columns} dataSource={data} size='large' 
                     pagination={{
                         defaultPageSize: 5,
                         hideOnSinglePage: true,
                         showSizeChanger: false
                     }}
-                />
-            }/>
+            />}/>
         </div>
         <Footer />
-    </>
+    </FlexDiv>
     );
 }
 

@@ -5,6 +5,9 @@ import BasicTable, { TableHead } from "../../components/Table";
 import Succeed from "../../assets/succeed.svg";
 import Fail from "../../assets/fail.svg";
 import Card from "../../components/Card";
+import FlexDiv from "../../components/FlexDiv";
+import Header from "../../components/Header";
+import TopSearchBar from "../../components/TopSearch";
 
 function Block(): React.ReactElement {
     const list = [
@@ -121,24 +124,21 @@ function Block(): React.ReactElement {
         }))
 
     return (
-        <div className="">
-            <List list={list} />
-            <Card title='交易列表' 
-                className='mx-12 mt-6'
-                children={
-                <BasicTable 
-                    columns={columns} 
-                    dataSource={data} 
-                    size='large' 
-                    pagination={{
-                        defaultPageSize: 5,
-                        hideOnSinglePage: true,
-                        showSizeChanger: false
-                    }}
-                />
-            }/>
+        <FlexDiv>
+            <Header />
+            <TopSearchBar titleName={`区块高度# +${'67812'}`} />
+            <div className='px-12 pb-6 bg-gray-light'>
+                <List list={list} />
+                <Card title='交易列表' className='mt-6' children={ <BasicTable columns={columns} dataSource={data} size='large'
+                        pagination={{
+                            defaultPageSize: 5,
+                            hideOnSinglePage: true,
+                            showSizeChanger: false
+                        }}
+                />}/>
+            </div>
             <Footer />
-        </div>
+        </FlexDiv>
     );
 }
 

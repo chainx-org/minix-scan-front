@@ -2,7 +2,6 @@ import React from "react";
 import BasicTable, { TableHead } from "../../../components/Table";
 
 function Transfer(): React.ReactElement {
-
     const columns: TableHead[] = [
         {
             title: '区块高度',
@@ -49,51 +48,6 @@ function Transfer(): React.ReactElement {
             receive: '1Bq97r2dW814jmg8J1Bq9…',
             assets: 'CID666666',
             amount: '1',
-        },
-        {
-            blockHeight: '7834',
-            time: '2019.03.01 08:16:45',
-            transferHash: '1Bq97r2dW814jmg8J1Bq97r2dW814jmg8J',
-            send: '1Bq97r2dW814jmg8J1Bq9…',
-            receive: '1Bq97r2dW814jmg8J1Bq9…',
-            assets: 'CID666666',
-            amount: '1',
-        },
-        {
-            blockHeight: '7834',
-            time: '2019.03.01 08:16:45',
-            transferHash: '1Bq97r2dW814jmg8J1Bq97r2dW814jmg8J',
-            send: '1Bq97r2dW814jmg8J1Bq9…',
-            receive: '1Bq97r2dW814jmg8J1Bq9…',
-            assets: 'CID666666',
-            amount: '1',
-        },
-        {
-            blockHeight: '7834',
-            time: '2019.03.01 08:16:45',
-            transferHash: '1Bq97r2dW814jmg8J1Bq97r2dW814jmg8J',
-            send: '1Bq97r2dW814jmg8J1Bq9…',
-            receive: '1Bq97r2dW814jmg8J1Bq9…',
-            assets: 'CID666666',
-            amount: '1',
-        },
-        {
-            blockHeight: '7834',
-            time: '2019.03.01 08:16:45',
-            transferHash: '1Bq97r2dW814jmg8J1Bq97r2dW814jmg8J',
-            send: '1Bq97r2dW814jmg8J1Bq9…',
-            receive: '1Bq97r2dW814jmg8J1Bq9…',
-            assets: 'CID666666',
-            amount: '1',
-        },
-        {
-            blockHeight: '7834',
-            time: '2019.03.01 08:16:45',
-            transferHash: '1Bq97r2dW814jmg8J1Bq97r2dW814jmg8J',
-            send: '1Bq97r2dW814jmg8J1Bq9…',
-            receive: '1Bq97r2dW814jmg8J1Bq9…',
-            assets: 'CID666666',
-            amount: '1',
         }
     ]
     const data = dataList.map((item) => ({
@@ -106,20 +60,17 @@ function Transfer(): React.ReactElement {
         'amount': <div>{item.amount}</div>,
     }))
 
-
     return (
-        <div className=''>
-            <BasicTable 
-                columns={columns} 
-                dataSource={data} 
-                size='large' 
-                pagination={{
-                    defaultPageSize: 5,
-                    hideOnSinglePage: true,
-                    showSizeChanger: false
-                }}
-            />
-        </div>
+        <BasicTable 
+            columns={columns} 
+            dataSource={data} 
+            size='large' 
+            pagination={{
+                defaultPageSize: 5,
+                hideOnSinglePage: true,
+                showSizeChanger: false
+            }}
+        />
     );
 }
 

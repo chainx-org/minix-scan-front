@@ -11,16 +11,16 @@ import { ClearBtnProvider } from "./hooks/ClearBtnProvider";
 const App: React.FC = () => {
   return (
     <HashRouter>
-        <ClearBtnProvider>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/account" component={Account} />
-            <Route path="/trade" component={Trade} />
-            <Route path="/NFTDetail" component={NFTDetail} />
-            <Route path="/indexSearch" component={IndexSearch} />
-            <Route path="/block" component={Block} />
-          </Switch>
-        </ClearBtnProvider>
+      <ClearBtnProvider>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/account" component={Account} />
+          <Route path="/trade" component={Trade} />
+          <Route path="/NFTDetail" component={NFTDetail} />
+          <Route path="/indexSearch" component={IndexSearch} />
+          <Route path="/block" component={Block} />
+        </Switch>
+      </ClearBtnProvider>
     </HashRouter>
   );
 };

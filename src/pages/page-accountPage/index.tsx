@@ -1,7 +1,11 @@
 import React from "react";
+import Card from "../../components/Card";
+import FlexDiv from "../../components/FlexDiv";
 import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 import List from "../../components/List";
 import SwitchTabs, { TabInfo } from "../../components/SwitchTabs";
+import TopSearchBar from "../../components/TopSearch";
 import Assets from "./Assets";
 import Transfer from "./Transfer";
 
@@ -37,19 +41,16 @@ function Account(): React.ReactElement {
     },
   ];
 
-  const setList = (key: string) => {
-    console.log(key, "key");
-  };
   return (
-    <>
-      <List list={list} />
-      <SwitchTabs
-        onTabClick={(key: string) => setList(key)}
-        size="lg"
-        tabList={tabList}
-      />
+    <FlexDiv>
+      <Header />
+      <TopSearchBar titleName="账户详情" />
+      <div className='px-12 pb-6 bg-gray-light'>
+        <List list={list} />
+        <Card children={<SwitchTabs size="lg" tabList={tabList}/>} className='mt-6' />
+      </div>
       <Footer />
-    </>
+    </FlexDiv>
   );
 }
 
