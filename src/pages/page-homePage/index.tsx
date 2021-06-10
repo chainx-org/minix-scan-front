@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, Suspense } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Search from "../../components/Search";
 import MinixIcon from "../../components/MinixIcon";
@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/index";
 import homeBg from "../../assets/background.png";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import { InputContext } from "../../hooks/InputProvider";
+import Child from "../../api/user";
 function Home(): React.ReactElement {
   const {
     isShowSearchList,
@@ -43,6 +44,9 @@ function Home(): React.ReactElement {
               mr={24}
             />
           </div>
+          <Suspense fallback={<div>我是一个前端，整天郁郁寡欢</div>}>
+            {/* <Child></Child> */}
+          </Suspense>
         </div>
       </div>
       <Footer className="fixed bottom-0" />
