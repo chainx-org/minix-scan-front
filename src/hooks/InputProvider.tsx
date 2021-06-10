@@ -44,22 +44,24 @@ export const InputProvider: FC = ({ children }) => {
     setInputValue("");
     setShowSearchList(false);
     setShowClearIcon(false);
+    setDirectTo(<Link to={`/`}>搜索</Link>);
   };
   const directPage = (result: Boolean) => {
     if (result) {
-      window.location.href = "http://localhost:3000/#/account";
+      window.location.href = "http://localhost:3000/#/account?" + inputValue;
       clearInput();
     } else {
-      window.location.href = "http://localhost:3000/#/trade";
+      window.location.href = "http://localhost:3000/#/trade?" + inputValue;
       clearInput();
     }
   };
 
-  const directPageforNode = (result: Boolean) => {
-    if (result) {
-      setDirectTo(<Link to={`/account?` + inputValue}>搜索</Link>);
+  const directPageforNode = (result: string) => {
+    const resultType = /^\d+$/.test(result);
+    if (resultType) {
+      setDirectTo(<Link to={`/account?` + result}>搜索</Link>);
     } else {
-      setDirectTo(<Link to={`/trade?` + inputValue}>搜索</Link>);
+      setDirectTo(<Link to={`/trade?` + result}>搜索</Link>);
     }
   };
 
@@ -68,12 +70,10 @@ export const InputProvider: FC = ({ children }) => {
       setShowSearchList(true);
       setInputValue(value);
       setShowClearIcon(true);
-      const result = /^\d+$/.test(inputValue);
-      directPageforNode(result);
+      directPageforNode(value);
     } else {
       clearInput();
     }
-    console.log("inputValue", inputValue);
   };
 
   return (

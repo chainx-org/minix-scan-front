@@ -24,7 +24,7 @@ function TopSearchBar({
 
   return (
     <>
-      <div className="flex justify-between px-12 py-3">
+      <div className="flex justify-between px-12 py-3 h-16">
         <div className="py-2">
           <span className="text-base leading-20 ">{titleName}</span>
         </div>

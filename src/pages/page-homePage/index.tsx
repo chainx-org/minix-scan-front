@@ -43,9 +43,6 @@ function Home(): React.ReactElement {
               mr={24}
             />
           </div>
-          {/* <div className="w-100 shadow-sm mt-3 rounded-rounded">
-            {isShowSearchList && <SearchList itemList={itemValue} />}
-          </div> */}
         </div>
       </div>
       <Footer className="fixed bottom-0" />

@@ -35,12 +35,13 @@ function Search({
   const SearchIcon = icon ? <img src={searchIcon} /> : "";
   const searchButton = useRef<any>(null);
   const clearIconControl = clear ? ClearIcon(searchButton) : ClearIcon();
+  console.log("directTo", directTo);
   const clearInputValue = () => {
     clearInput();
   };
   let itemValue = ["#区块#", "#账户#", "#交易#", "#CID#"];
   return (
-    <div className={className}>
+    <div className={`relative ${className}`}>
       <Search
         ref={searchButton}
         placeholder="搜索区块 / 交易 / CID / 账户"
@@ -58,7 +59,7 @@ function Search({
         suffix={clearIconControl}
       />
       {isShowSearchList && (
-        <div className={`shadow-sm mt-3 rounded-rounded mr-` + mr}>
+        <div className={`shadow-sm mt-3 rounded-rounded mr-${mr}`}>
           <SearchList itemList={itemValue} />
         </div>
       )}
