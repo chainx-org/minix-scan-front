@@ -1,14 +1,20 @@
 import axios from "axios";
-async function fetcher(url: any) {
+const urlHead = "http://192.168.31.173:3213";
+async function fetcher(url: string, value: string) {
   let res: any;
   switch (url) {
-    case "/api/users/alluser":
+    case "/cids/":
       res = await axios({
-        url,
+        url: urlHead.concat(url).concat(value),
         method: "get",
       });
       break;
-
+    case "/address/":
+      res = await axios({
+        url: urlHead.concat(url).concat(value),
+        method: "get",
+      });
+      break;
     default:
       break;
   }

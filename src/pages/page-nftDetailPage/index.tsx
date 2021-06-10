@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../../components/Card";
 import FlexDiv from "../../components/FlexDiv";
 import Footer from "../../components/Footer";
