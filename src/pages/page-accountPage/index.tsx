@@ -8,7 +8,6 @@ import FlexDiv from "../../components/FlexDiv";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import List from "../../components/List";
-import LoadingStstus from "../../components/Loading";
 import NoContent from "../../components/NoContent";
 import SwitchTabs, { TabInfo } from "../../components/SwitchTabs";
 import TopSearchBar from "../../components/TopSearch";
@@ -64,13 +63,13 @@ function Account(): React.ReactElement {
   ];
 
   return (
-    <>
-      <FlexDiv>
+    <FlexDiv>
+      <div>
         <Header />
         {
           res === 'loading' ? <Spin /> :
             <>
-              {res && res.errMsg ? <><NoContent title={addressID} /></> : <>
+              {res && res.errMsg ? <div className='flex flex-col'><NoContent title={addressID} /></div> : <>
                 <div className='flex flex-col justify-start'>
                   <TopSearchBar titleName={t('Account detail')} />
                   <div className="px-12 pb-6 bg-gray-light">
@@ -83,9 +82,9 @@ function Account(): React.ReactElement {
                 </div></>}
             </>
         }
-        <Footer />
-      </FlexDiv>
-    </>
+      </div>
+      <Footer />
+    </FlexDiv>
   );
 }
 
