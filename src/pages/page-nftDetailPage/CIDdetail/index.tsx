@@ -3,7 +3,8 @@ import moment from "moment";
 import Book from "../../../assets/book.svg";
 import Detail from "../../../assets/icon_detail.svg";
 import avatComing from "../../../assets/avat_coming.svg";
-import Star from "../../../assets/icon_star.svg";
+// import Star from "../../../assets/icon_star.svg";
+import { useTranslation } from "react-i18next";
 interface CIDProps {
   isloading?: Boolean;
   dataMsg?: any;
@@ -12,6 +13,8 @@ function CIDdetail({
   isloading,
   dataMsg,
 }: CIDProps): React.ReactElement<CIDProps> {
+  const { t } = useTranslation();
+  // console.log("dataMsg", dataMsg);
   let CidInfo: Array<[]> = [];
   let CidTime: string = "";
   let currentAddress = "";
@@ -35,7 +38,7 @@ function CIDdetail({
       <div className="flex flex-col border border-lang rounded-rounded">
         <div className="flex items-center border-b border-lang p-4">
           <img src={Book} alt="introduction" className="mr-1" />
-          <span className="text-black-darker font-semibold text-sm">简介</span>
+          <span className="text-black-darker font-semibold text-sm">{t('Introduction')}</span>
         </div>
         <div className="flex flex-col p-4 bg-gray-dark border-b border-lang">
           <div className="flex items-center pb-2">
@@ -59,7 +62,7 @@ function CIDdetail({
         </div>
         <div className="flex items-center border-b border-lang p-4">
           <img src={Detail} alt="details" className="mr-1" />
-          <span className="text-black-darker font-semibold text-sm">详情</span>
+          <span className="text-black-darker font-semibold text-sm">{t('For more information')}</span>
         </div>
         <div className="flex flex-col p-4 bg-gray-dark border-b border-lang text-black-darker font-normal text-xs">
           <div className="flex justify-between pb-4">

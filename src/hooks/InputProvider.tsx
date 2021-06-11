@@ -9,6 +9,7 @@ import React, {
 import { ClearBtnContext } from "../hooks/ClearBtnProvider";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import ClearIcon from "../components/ClearIcon/index";
+import { useTranslation } from "react-i18next";
 
 interface InputData {
   searchInput: Function;
@@ -22,6 +23,7 @@ interface InputData {
 export const InputContext = createContext<InputData>({} as InputData);
 
 export const InputProvider: FC = ({ children }) => {
+  const { t } = useTranslation();
   const {
     isShowSearchList,
     showClearIcon,
@@ -59,9 +61,9 @@ export const InputProvider: FC = ({ children }) => {
   const directPageforNode = (result: string) => {
     const resultType = /^\d+$/.test(result);
     if (resultType) {
-      setDirectTo(<Link to={`/NFTDetail?` + result}>搜索</Link>);
+      setDirectTo(<Link to={`/NFTDetail?` + result}>{t('Search')}</Link>);
     } else {
-      setDirectTo(<Link to={`/account?` + result}>搜索</Link>);
+      setDirectTo(<Link to={`/account?` + result}>{t('Search')}</Link>);
     }
   };
 

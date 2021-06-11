@@ -1,43 +1,45 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import BasicTable, { TableHead } from "../../../components/Table";
 import { RequestData } from "../../../hooks/useSWR";
 
 function Transfer(): React.ReactElement {
+    const { t } = useTranslation();
     const addressID = window.location.search.slice(1,window.location.search.length)
     const res = RequestData("/transfer?address=",addressID);
     const columns: TableHead[] = [
         {
-            title: '区块高度',
+            title: t('Block height'),
             dataIndex: 'blockHeight',
             key: 'blockHeight',
         },
         {
-            title: '时间',
+            title: t('Time'),
             dataIndex: 'time',
             key: 'time',
         },
         {
-            title: '交易哈希',
+            title: t('Transaction hash'),
             dataIndex: 'transferHash',
             key: 'transferHash',
         },
         {
-            title: '发送方',
+            title: t('Sender'),
             key: 'send',
             dataIndex: 'send',
         },
         {
-            title: '接收方',
+            title: t('Recipient'),
             dataIndex: 'receive',
             key: 'receive',
         },
         {
-            title: '资产',
+            title: t('Assets'),
             dataIndex: 'assets',
             key: 'assets',
         },
         {
-            title: '数量',
+            title: t('Quantity'),
             dataIndex: 'amount',
             key: 'amount',
         }
