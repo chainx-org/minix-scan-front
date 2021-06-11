@@ -7,10 +7,12 @@ import noData from "../../assets/img_search_none.svg";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import homeBg from "../../assets/background2.png";
 import { InputContext } from "../../hooks/InputProvider";
+import { useTranslation } from "react-i18next";
 interface NoContentProps {
     title: string | number;
 }
 function NoContent({title}: NoContentProps): React.ReactElement {
+  const { t } = useTranslation();
   const {
     isShow,
     isShowSearchList,
@@ -52,7 +54,7 @@ function NoContent({title}: NoContentProps): React.ReactElement {
           <span>“{title}”</span>
         </div>
         <div className="h-102 mt-2 leading-22 text-base font-base font-normal bg-text-lighter text-center">
-          <span>找不到相关数据</span>
+          <span>{t('No relevant data found')}</span>
         </div>
       </div>
     </>

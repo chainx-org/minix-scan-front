@@ -1,29 +1,31 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import BasicTable, { TableHead } from "../../../components/Table";
 import { RequestData } from "../../../hooks/useSWR";
 
 function Assets(): React.ReactElement {
+  const { t } = useTranslation();
   const addressID = window.location.search.slice(1,window.location.search.length)
   const res = RequestData("/transfer?address=",addressID);
   console.log(res)
   const columns: TableHead[] = [
     {
-      title: '资产',
+      title: t('Assets'),
       dataIndex: 'assets',
       key: 'assets',
     },
     {
-      title: '资产类别',
+      title: t('Asset category'),
       dataIndex: 'assetType',
       key: 'assetType',
     },
     {
-      title: '数量',
+      title: t('Quantity'),
       dataIndex: 'amount',
       key: 'amount',
     },
     {
-      title: '最近交易',
+      title: t('Recent transactions'),
       key: 'lastTrade',
       dataIndex: 'lastTrade',
     }

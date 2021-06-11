@@ -6,6 +6,7 @@ import { InputContext } from "../../hooks/InputProvider";
 import SearchList from "../../components/SearchList/index";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface seachProps {
   icon: Boolean | String;
@@ -29,6 +30,7 @@ function Search({
   directTo,
   mr,
 }: seachProps): React.ReactElement<seachProps> {
+  const { t } = useTranslation();
   const { setInputValue, clearInput } = useContext(InputContext);
   const { isShowSearchList } = useContext(ClearBtnContext);
   const { Search } = Input;
@@ -43,7 +45,7 @@ function Search({
     <div className={`relative ${className}`}>
       <Search
         ref={searchButton}
-        placeholder="搜索区块 / 交易 / CID / 账户"
+        placeholder={t('Search block / transaction / CID / account') || ''} 
         enterButton={directTo}
         prefix={SearchIcon}
         size="large"
