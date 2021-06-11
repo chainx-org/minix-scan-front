@@ -1,7 +1,10 @@
 import React from "react";
 import BasicTable, { TableHead } from "../../../components/Table";
-
-function Transfer(): React.ReactElement {
+interface AssetsProps {
+    showData?: object[];
+  }
+function Transfer({showData}:AssetsProps): React.ReactElement {
+    console.log('showData',showData)
     const columns: TableHead[] = [
         {
             title: '区块高度',
@@ -50,7 +53,8 @@ function Transfer(): React.ReactElement {
             amount: '1',
         }
     ]
-    const data = dataList.map((item) => ({
+    const data = dataList.map((item,num) => ({
+         key: num,
         'blockHeight': <div>{item.blockHeight}</div>,
         'time': <div>{item.time}</div>,
         'transferHash': <div className='text-blue-light'>{item.transferHash}</div>,

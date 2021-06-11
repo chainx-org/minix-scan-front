@@ -97,8 +97,8 @@ function NFTDetail(): React.ReactElement {
   return (
     <>
       {!hasContent ? (
-        // <IndexSearch />
-        <div>1111</div>
+        <IndexSearch />
+        // <div>1111</div>
       ) : (
         <FlexDiv>
           <Header />

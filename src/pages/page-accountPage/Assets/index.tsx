@@ -1,7 +1,9 @@
 import React from "react";
 import BasicTable, { TableHead } from "../../../components/Table";
-
-function Assets(): React.ReactElement {
+interface AssetsProps {
+  showData?: object[];
+}
+function Assets({showData}:AssetsProps): React.ReactElement {
 
   const columns: TableHead[] = [
     {
@@ -48,7 +50,8 @@ function Assets(): React.ReactElement {
     }
   }
   test()
-  const data = dataList.map((item)=>({
+  const data = dataList.map((item,num)=>({
+     key: num,
     'assets': <div>{item.assets}</div>,
     'assetType': <div>{item.assetType}</div>,
     'amount': <div>{item.amount}</div>,
