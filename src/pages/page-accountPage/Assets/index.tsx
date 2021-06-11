@@ -1,10 +1,11 @@
 import React from "react";
 import BasicTable, { TableHead } from "../../../components/Table";
-interface AssetsProps {
-  showData?: object[];
-}
-function Assets({showData}:AssetsProps): React.ReactElement {
+import { RequestData } from "../../../hooks/useSWR";
 
+function Assets(): React.ReactElement {
+  const addressID = window.location.search.slice(1,window.location.search.length)
+  const res = RequestData("/transfer?address=",addressID);
+  console.log(res)
   const columns: TableHead[] = [
     {
       title: '资产',
@@ -27,35 +28,13 @@ function Assets({showData}:AssetsProps): React.ReactElement {
       dataIndex: 'lastTrade',
     }
   ];
-  // const dataList = [
-  //   {
-  //     icon: '',
-  //     assets: 'CID666666',
-  //     assetType: 'NFT',
-  //     amount: '1',
-  //     lastTrade: '0x1234567890abc',
-  //   },
-  // ]
-  let dataList: any[] = []
-  const test = ()=>{
-    let num = 300;
-    for(let i = 0;i<300;i++){
-      dataList.push({
-        icon: '',
-        assets: 'CID666666',
-        assetType: 'NFT',
-        amount: '1',
-        lastTrade: '0x1234567890abc',
-      },)
-    }
-  }
-  test()
-  const data = dataList.map((item,num)=>({
+
+  const data = res.items?.map((item:any,num: number)=>({
      key: num,
-    'assets': <div>{item.assets}</div>,
-    'assetType': <div>{item.assetType}</div>,
-    'amount': <div>{item.amount}</div>,
-    'lastTrade': <div>{item.lastTrade}</div>
+    'assets': <div>CID {item.cid}</div>,
+    'assetType': <div>-</div>,
+    'amount': <div>-</div>,
+    'lastTrade': <div className='text-blue-light'>{item.extrinsicHash.substring(0,20)+'...'+item.extrinsicHash.substring(item.extrinsicHash.length-20)}</div>
   }))
 
   return (
@@ -64,7 +43,7 @@ function Assets({showData}:AssetsProps): React.ReactElement {
         columns={columns} 
         dataSource={data} 
         size='large' 
-        loading={false}
+        loading={res === 'loading'}
         pagination={{
           defaultPageSize: 5,
           hideOnSinglePage: true,
