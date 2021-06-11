@@ -17,19 +17,11 @@ import Transfer from "./Transfer";
 function Account(): React.ReactElement {
   const addressID = window.location.search.slice(1,window.location.search.length)
   const [isMsgShow, setIsMsgShow] = useState(false);
-  const [showData, setShowData] = useState([]);
   const [publicAddress, setPublicAddress] = useState({
     address:'',
     publickey:''
   });
   const [initLoading, setInitLoading] = useState(true)
-  const res = RequestData("/transfer?address=","5SuGtKvv9VNR6eD5hKCQWpZPZSP4eDmpfAnKxScHqSv5JsFF");
-  useEffect(() => {
-    if(res && res.items) {
-      setShowData(res.items)
-    }
-  }, [res])
-  console.log(res)
 
   useEffect(() => {
     async function addressMsg() {
@@ -71,11 +63,11 @@ function Account(): React.ReactElement {
   const tabList: TabInfo[] = [
     {
       title: "资产",
-      content: <Assets showData={showData}/>,
+      content: <Assets />,
     },
     {
       title: "转账",
-      content: <Transfer showData={showData}/>,
+      content: <Transfer />,
     }
   ];
 
