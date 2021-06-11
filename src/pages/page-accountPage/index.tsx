@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -17,44 +18,33 @@ import Transfer from "./Transfer";
 
 function Account(): React.ReactElement {
   const { t } = useTranslation();
-  const addressID = window.location.search.slice(1,window.location.search.length)
-  const [isMsgShow, setIsMsgShow] = useState(false);
+  const addressID = window.location.search.slice(1, window.location.search.length)
   const [publicAddress, setPublicAddress] = useState({
-    address:'',
-    publickey:''
+    address: '',
+    publickey: ''
   });
-  const [initLoading, setInitLoading] = useState(true)
-
+  const res = RequestData("/address/", addressID);
   useEffect(() => {
     async function addressMsg() {
-      const result = await axios.get(`${urlHead}/address/${addressID}`)
-        .then((res) => {
-          setInitLoading(false)
-          return res.data
-        }).catch((err) => { console.log(err) });
-        if (result && result.errMsg) {
-        setIsMsgShow(true)
-      }
-      if (result && result.data) {
-        const publicAddress = await axios.get(`${urlHead}/publickey/${result.data[0]}`)
+      if (res && res.data) {
+        const publicAddress = await axios.get(`${urlHead}/publickey/${res.data[0]}`)
           .then((res) => res.data).catch((err) => { console.log(err) });
         setPublicAddress(publicAddress)
       }
     }
     addressMsg()
-  }, [])
-
+  }, [res])
   const list = [
     {
       title: t('Account address'),
       content: (
-        <div className="text-blue-light">{publicAddress.address}</div>
+        <div className="text-blue-light">{res?.data ? res?.data : publicAddress.address}</div>
       ),
     },
     {
       title: t('Account public key'),
       content: (
-        <div className="text-blue-light">{publicAddress.publickey}</div>
+        <div className="text-blue-light">{publicAddress.publickey ? publicAddress.publickey : '-'}</div>
       ),
     },
     {
@@ -75,23 +65,26 @@ function Account(): React.ReactElement {
 
   return (
     <>
-        <FlexDiv>
-          {
-            isMsgShow ?<><Header /><NoContent title={addressID} /></> :<>
-            {/* { initLoading && <LoadingStstus loading={initLoading} />} */}
-            <div className='flex flex-col justify-start'>
-              <Header />
-              <TopSearchBar titleName={t('Account detail')} />
-              <div className="px-12 pb-6 bg-gray-light">
-                <List list={list} loading={initLoading} />
-                <Card
-                  children={<SwitchTabs size="lg" tabList={tabList} />}
-                  className="mt-6"
-                />
-              </div></div></>
-          }
-          <Footer />
-        </FlexDiv>
+      <FlexDiv>
+        <Header />
+        {
+          res === 'loading' ? <Spin /> :
+            <>
+              {res && res.errMsg ? <><NoContent title={addressID} /></> : <>
+                <div className='flex flex-col justify-start'>
+                  <TopSearchBar titleName={t('Account detail')} />
+                  <div className="px-12 pb-6 bg-gray-light">
+                    <List list={list} loading={res === 'loading'} />
+                    <Card
+                      children={<SwitchTabs size="lg" tabList={tabList} />}
+                      className="mt-6"
+                    />
+                  </div>
+                </div></>}
+            </>
+        }
+        <Footer />
+      </FlexDiv>
     </>
   );
 }
