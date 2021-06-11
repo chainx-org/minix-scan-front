@@ -35,7 +35,6 @@ function Search({
   const SearchIcon = icon ? <img src={searchIcon} /> : "";
   const searchButton = useRef<any>(null);
   const clearIconControl = clear ? ClearIcon(searchButton) : ClearIcon();
-  console.log("directTo", directTo);
   const clearInputValue = () => {
     clearInput();
   };

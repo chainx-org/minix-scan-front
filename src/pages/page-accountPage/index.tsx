@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../components/Card";
 import FlexDiv from "../../components/FlexDiv";
 import Footer from "../../components/Footer";
@@ -6,10 +6,13 @@ import Header from "../../components/Header";
 import List from "../../components/List";
 import SwitchTabs, { TabInfo } from "../../components/SwitchTabs";
 import TopSearchBar from "../../components/TopSearch";
+import { RequestData } from "../../hooks/useSWR";
 import Assets from "./Assets";
 import Transfer from "./Transfer";
 
 function Account(): React.ReactElement {
+  const [hasData, setHasData] = useState(true);
+  const [showData, setShowData] = useState("");
   const list = [
     {
       title: "账户地址",
@@ -41,13 +44,32 @@ function Account(): React.ReactElement {
     },
   ];
 
+  const res = RequestData(
+    "/address/",
+    "5Srioh9K98MjYx6MVATH4fYP9Bw61SBsLS44RirofuRJT"
+  );
+  // console.log("resAccount", res);
+  // if (res === "false") {
+  //   //没有请求到数据，跳转到那个空的页面吧？
+  //   setHasData(true);
+  // } else if (res === "loading") {
+  //   //加载中，出loading
+  //   setHasData(true);
+  // } else {
+  //   setHasData(false);
+  //   setShowData(res);
+  // }
+
   return (
     <FlexDiv>
       <Header />
       <TopSearchBar titleName="账户详情" />
-      <div className='px-12 pb-6 bg-gray-light'>
+      <div className="px-12 pb-6 bg-gray-light">
         <List list={list} loading={false} />
-        <Card children={<SwitchTabs size="lg" tabList={tabList}/>} className='mt-6' />
+        <Card
+          children={<SwitchTabs size="lg" tabList={tabList} />}
+          className="mt-6"
+        />
       </div>
       <Footer />
     </FlexDiv>
