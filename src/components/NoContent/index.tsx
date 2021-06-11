@@ -31,7 +31,7 @@ function NoContent({title}: NoContentProps): React.ReactElement {
 
   return (
     <>
-      <div className="w-overSpread py-6" style={homePageImage}>
+      <div className="w-overSpread py-6 mb-25" style={homePageImage}>
         <div className="w-150 h-13 mx-auto">
           <Search
             className={"Search"}
@@ -46,14 +46,14 @@ function NoContent({title}: NoContentProps): React.ReactElement {
           />
         </div>
       </div>
-      <div className="w-overSpread h-overSpread bg-gray-light flex flex-col justify-end">
+      <div className="w-overSpread h-overSpread bg-gray-light flex flex-col">
         <div className="w-58 mx-auto ">
           <img src={noData} style={{ border: "1px dashed" }} />
         </div>
         <div className="mt-6 leading-25 text-xms font-xms font-semibold bg-text-darker text-center">
           <span>“{title}”</span>
         </div>
-        <div className="h-102 mt-2 leading-22 text-base font-base font-normal bg-text-lighter text-center">
+        <div className="mt-2 leading-22 text-base font-base font-normal bg-text-lighter text-center">
           <span>{t('No relevant data found')}</span>
         </div>
       </div>

@@ -1,6 +1,5 @@
 {
     "Search block / transaction / CID / account":"搜索区块 / 交易 / CID / 账户",
-    "Search": "搜索",
     "No relevant data found":"找不到相关数据",
     "Transaction detail": "交易详情",
     "Block height":"区块高度",
@@ -43,5 +42,6 @@
     "Asset category":"资产类别",
     "Quantity":"数量",
     "Recent transactions":"最近交易",
-    "Time":"时间"	
+    "Time":"时间",
+    "Search":"搜索"
 }
