@@ -19,6 +19,7 @@ function NFTDetail(): React.ReactElement {
   const cid = window.location.search.slice(1, window.location.search.length);
   // const cid = "401046720";
   const res = RequestData("/cids/", cid);
+
   const [recordData, setRecordData] = useState([]);
   const [isLoadingRecordList, setIsLoadingRecordList] = useState(false);
   async function b() {
@@ -100,9 +101,12 @@ function NFTDetail(): React.ReactElement {
         <Spin />
       ) : (
         <>
-          <>{res && res.errMsg && <NoContent title={cid} />}</>
           <>
-            {res && !res.errMsg && (
+            {(res && res.errMsg) ||
+              (res && res === "false" && <NoContent title={cid} />)}
+          </>
+          <>
+            {res && !res.errMsg && res !== "false" && (
               <>
                 <TopSearchBar titleName={t("NFT detail")} />
                 <div className="px-12 pb-6 bg-gray-light">
