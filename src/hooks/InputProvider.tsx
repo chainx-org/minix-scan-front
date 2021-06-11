@@ -32,11 +32,10 @@ export const InputProvider: FC = ({ children }) => {
     setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
-  const [directTo, setDirectTo] = useState(<Link to="/">{t('Search')}</Link>);
+  const [directTo, setDirectTo] = useState("/");
   const [inputValue, setInputValue] = useState("");
   const searchFun: Function = () => {
     if (inputValue) {
-      // console.log("inputValue", inputValue);
       const result = /^\d+$/.test(inputValue);
       directPage(result);
     }
@@ -46,14 +45,15 @@ export const InputProvider: FC = ({ children }) => {
     setInputValue("");
     setShowSearchList(false);
     setShowClearIcon(false);
-    setDirectTo(<Link to={`/`}>{t('Search')}</Link>);
+    setDirectTo("/");
   };
   const directPage = (result: Boolean) => {
     if (result) {
-      window.location.href = "http://localhost:3000/NFTDetail?" + inputValue;
+      window.location.href =
+        window.location.origin + "/NFTDetail?" + inputValue;
       clearInput();
     } else {
-      window.location.href = "http://localhost:3000/account?" + inputValue;
+      window.location.href = window.location.origin + "/account?" + inputValue;
       clearInput();
     }
   };
@@ -61,9 +61,9 @@ export const InputProvider: FC = ({ children }) => {
   const directPageforNode = (result: string) => {
     const resultType = /^\d+$/.test(result);
     if (resultType) {
-      setDirectTo(<Link to={`/NFTDetail?` + result}>{t('Search')}</Link>);
+      setDirectTo(`/NFTDetail?${result}`);
     } else {
-      setDirectTo(<Link to={`/account?` + result}>{t('Search')}</Link>);
+      setDirectTo(`/account?${result}`);
     }
   };
 

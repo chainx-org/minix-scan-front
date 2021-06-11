@@ -45,8 +45,9 @@ function Search({
     <div className={`relative ${className}`}>
       <Search
         ref={searchButton}
-        placeholder={t('Search block / transaction / CID / account') || ''} 
-        enterButton={directTo}
+        placeholder={t("Search block / transaction / CID / account") || ""}
+        // enterButton={directTo}
+        enterButton={<Link to={`${directTo}`}>{t("Search")}</Link>}
         prefix={SearchIcon}
         size="large"
         loading={loadingStatus}
