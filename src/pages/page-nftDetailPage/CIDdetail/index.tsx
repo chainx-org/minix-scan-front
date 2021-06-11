@@ -12,23 +12,25 @@ function CIDdetail({
   isloading,
   dataMsg,
 }: CIDProps): React.ReactElement<CIDProps> {
-  // console.log("dataMsg", dataMsg);
   let CidInfo: Array<[]> = [];
   let CidTime: string = "";
   let currentAddress = "";
-  CidInfo = dataMsg.data;
-  if (CidInfo && CidInfo[0]) {
-    currentAddress = String(CidInfo[0]);
-    currentAddress =
-      currentAddress.substring(0, 20) +
-      "..." +
-      currentAddress.substring(50 - 6);
-    CidTime = moment(dataMsg.indexer.blockTime).format("YYYY.MM.DD HH:MM:SS");
+  if (dataMsg.data) {
+    CidInfo = dataMsg.data;
+    if (CidInfo && CidInfo[0] && CidInfo[1]) {
+      currentAddress = String(CidInfo[0]);
+      currentAddress =
+        currentAddress.substring(0, 20) +
+        "..." +
+        currentAddress.substring(50 - 6);
+      CidTime = moment(dataMsg.indexer.blockTime).format("YYYY.MM.DD HH:MM:SS");
+    }
   }
+
   return (
     <div className="p-5">
       <div className="pt-3 px-3 pb-4 font-semibold text-black-darker text-2xl leading-8">
-        CID {isloading ? "-" : CidInfo[1]}
+        CID {CidInfo[1] ? CidInfo[1] : ""}
       </div>
       <div className="flex flex-col border border-lang rounded-rounded">
         <div className="flex items-center border-b border-lang p-4">
@@ -62,13 +64,11 @@ function CIDdetail({
         <div className="flex flex-col p-4 bg-gray-dark border-b border-lang text-black-darker font-normal text-xs">
           <div className="flex justify-between pb-4">
             <div>Contract Address</div>
-            <div className="text-blue-light">
-              {isloading ? "-" : currentAddress}
-            </div>
+            <div className="text-blue-light">{currentAddress}</div>
           </div>
           <div className="flex justify-between pb-4">
             <div>Age</div>
-            <div>{isloading ? "-" : CidTime}</div>
+            <div>{CidTime}</div>
           </div>
           {/* <div className="flex justify-between pb-4">
             <div>bonus</div>
