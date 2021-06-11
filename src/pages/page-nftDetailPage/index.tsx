@@ -45,27 +45,27 @@ function NFTDetail(): React.ReactElement {
 
   const columns: TableHead[] = [
     {
-      title: t('Type'),
+      title: t("Type"),
       dataIndex: "type",
       key: "type",
     },
     {
-      title: t('Timestamp'),
+      title: t("Timestamp"),
       dataIndex: "time",
       key: "time",
     },
     {
-      title: t('Sender'),
+      title: t("Sender"),
       dataIndex: "send",
       key: "send",
     },
     {
-      title: t('Recipient'),
+      title: t("Recipient"),
       key: "receive",
       dataIndex: "receive",
     },
     {
-      title: t('Transaction hash'),
+      title: t("Transaction hash"),
       key: "transferHash",
       dataIndex: "transferHash",
     },
@@ -104,7 +104,7 @@ function NFTDetail(): React.ReactElement {
           <>
             {res && !res.errMsg && (
               <>
-                <TopSearchBar titleName={t('NFT detail')} />
+                <TopSearchBar titleName={t("NFT detail")} />
                 <div className="px-12 pb-6 bg-gray-light">
                   <div className="grid grid-cols-card mb-6">
                     <Card className="mr-6">
@@ -136,12 +136,12 @@ function NFTDetail(): React.ReactElement {
                     }
                   />
                 </div>
-                <Footer />
               </>
             )}
           </>
         </>
       )}
+      <Footer />
     </FlexDiv>
   );
 }
