@@ -57,11 +57,11 @@ function Search({
         onSearch={clearInputValue}
         suffix={clearIconControl}
       />
-      {isShowSearchList && (
+      {/* {isShowSearchList && (
         <div className={`shadow-sm mt-3 rounded-rounded mr-${mr}`}>
           <SearchList itemList={itemValue} />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

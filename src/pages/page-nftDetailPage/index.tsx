@@ -10,6 +10,7 @@ import BasicTable, { TableHead } from "../../components/Table";
 import TopSearchBar from "../../components/TopSearch";
 import CIDdetail from "./CIDdetail";
 import { RequestData } from "../../hooks/useSWR";
+import { shortenString } from "../../helper/FormatHelper";
 import axios from "axios";
 
 function NFTDetail(): React.ReactElement {
@@ -22,9 +23,11 @@ function NFTDetail(): React.ReactElement {
     try {
       let result = await axios(
         `http://192.168.31.173:3213/transfer?address=${res.data[0]}`
+        // `http://192.168.31.173:3213/transfer?address=5SuGtKvv9VNR6eD5hKCQWpZPZSP4eDmpfAnKxScHqSv5JsFF`
       );
       setRecordData(result.data.items);
       setIsLoadingRecordList(true);
+      console.log(result, "result");
       if (result.data.items.length >= 0) {
         setIsLoadingRecordList(false);
       }
@@ -34,7 +37,9 @@ function NFTDetail(): React.ReactElement {
       // }
     }
   }
-  // useE
+  useEffect(() => {
+    b();
+  }, [res]);
 
   const columns: TableHead[] = [
     {
@@ -65,14 +70,22 @@ function NFTDetail(): React.ReactElement {
   ];
 
   const data = recordData.map((item) => ({
-    type: <div>Created</div>,
+    type: <div>{item["name"]}</div>,
     time: (
       <div>
         {moment(item["indexer"]["blockTime"]).format("YYYY.MM.DD HH:MM:SS")}
       </div>
     ),
-    send: <div>{item["from"]}</div>,
-    receive: <div className="text-blue-light">{item["to"]}</div>,
+    send: (
+      <div>
+        {item["from"] ? shortenString(item["from"], 0, 20, -7, 7) : "-"}
+      </div>
+    ),
+    receive: (
+      <div className="text-blue-light">
+        {shortenString(item["to"], 0, 20, -7, 7)}
+      </div>
+    ),
     transferHash: (
       <div className="text-blue-light">{item["extrinsicHash"]}</div>
     ),

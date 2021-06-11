@@ -44,9 +44,6 @@ function Home(): React.ReactElement {
               mr={24}
             />
           </div>
-          <Suspense fallback={<div>我是一个前端，整天郁郁寡欢</div>}>
-            {/* <Child></Child> */}
-          </Suspense>
         </div>
       </div>
       <Footer className="fixed bottom-0" />
