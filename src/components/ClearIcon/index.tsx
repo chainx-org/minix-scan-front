@@ -7,26 +7,8 @@ function ClearIcon(
 ): React.ReactElement {
   const { setItemValue, setShowSearchList, setShowClearIcon } =
     useContext(ClearBtnContext);
-  console.log("searchButton", searchButton);
   const clearInputFun = () => {
-    let initData = [
-      {
-        name: "#区块#",
-        value: "",
-      },
-      {
-        name: "#账户#",
-        value: "",
-      },
-      {
-        name: "#交易#",
-        value: "",
-      },
-      {
-        name: "#CID#",
-        value: "",
-      },
-    ];
+    let initData = ["#区块#", "#账户#", "#交易#", "#CID#"];
 
     if (searchButton) {
       searchButton.current.state.value = "";

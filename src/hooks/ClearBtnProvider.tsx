@@ -3,7 +3,7 @@ interface clearBtnData {
   isShow?: Boolean | String;
   isShowSearchList: Boolean | String;
   showClearIcon: Boolean | String;
-  itemValue: Array<{ name: String; value: String }>;
+  itemValue: Array<String>;
   setIsShow: Function;
   setShowSearchList: Function;
   setShowClearIcon: Function;
@@ -16,22 +16,10 @@ export const ClearBtnProvider: FC = ({ children }) => {
   let [isShowSearchList, setShowSearchList] = useState(false);
   let [showClearIcon, setShowClearIcon] = useState(false);
   let [itemValue, setItemValue] = useState([
-    {
-      name: "#区块#",
-      value: "",
-    },
-    {
-      name: "#账户#",
-      value: "",
-    },
-    {
-      name: "#交易#",
-      value: "",
-    },
-    {
-      name: "#CID#",
-      value: "",
-    },
+    "#区块#",
+    "#账户#",
+    "#交易#",
+    "#CID#",
   ]);
 
   return (

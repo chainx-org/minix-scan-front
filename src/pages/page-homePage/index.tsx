@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, Suspense } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Search from "../../components/Search";
 import MinixIcon from "../../components/MinixIcon";
@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/index";
 import homeBg from "../../assets/background.png";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import { InputContext } from "../../hooks/InputProvider";
+import Child from "../../api/user";
 function Home(): React.ReactElement {
   const {
     isShowSearchList,
@@ -16,7 +17,8 @@ function Home(): React.ReactElement {
     setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
-  const { searchInput, searchFun, directTo } = useContext(InputContext);
+  const { searchInput, searchFun, directTo, inputValue } =
+    useContext(InputContext);
   const homePageImage = {
     background: `url(${homeBg})`,
     backgroundSize: "cover",
@@ -39,10 +41,8 @@ function Home(): React.ReactElement {
               searchFun={searchFun}
               searchInput={searchInput}
               directTo={directTo}
+              mr={24}
             />
-          </div>
-          <div className="w-100 shadow-sm mt-3 rounded-rounded">
-            {isShowSearchList && <SearchList itemList={itemValue} />}
           </div>
         </div>
       </div>

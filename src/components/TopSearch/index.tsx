@@ -24,7 +24,7 @@ function TopSearchBar({
 
   return (
     <>
-      <div className="flex justify-between px-12 py-3">
+      <div className="flex justify-between px-12 py-3 h-16">
         <div className="py-2">
           <span className="text-base leading-20 ">{titleName}</span>
         </div>
@@ -38,12 +38,10 @@ function TopSearchBar({
             searchFun={searchFun}
             searchInput={searchInput}
             directTo={directTo}
+            mr={23}
           />
         </div>
       </div>
-      {/* <div className="w-100 shadow-sm mt-3 rounded-rounded">
-        {isShowSearchList && <SearchList itemList={itemValue} />}
-      </div> */}
     </>
   );
 }

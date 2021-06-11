@@ -4,20 +4,26 @@ import React, {
   useContext,
   FC,
   ReactNode,
+  useEffect,
 } from "react";
 import { ClearBtnContext } from "../hooks/ClearBtnProvider";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import ClearIcon from "../components/ClearIcon/index";
+import { useTranslation } from "react-i18next";
 
 interface InputData {
   searchInput: Function;
   searchFun: Function;
   directTo: ReactNode;
+  inputValue: String;
+  setInputValue: Function;
+  clearInput: Function;
 }
 
 export const InputContext = createContext<InputData>({} as InputData);
 
 export const InputProvider: FC = ({ children }) => {
+  const { t } = useTranslation();
   const {
     isShowSearchList,
     showClearIcon,
@@ -26,48 +32,50 @@ export const InputProvider: FC = ({ children }) => {
     setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
-  const [directTo, setDirectTo] = useState(<Link to="/">搜索</Link>);
+  const [directTo, setDirectTo] = useState("/");
   const [inputValue, setInputValue] = useState("");
   const searchFun: Function = () => {
     if (inputValue) {
-      console.log("inputValue", inputValue);
       const result = /^\d+$/.test(inputValue);
       directPage(result);
     }
   };
 
+  const clearInput = () => {
+    setInputValue("");
+    setShowSearchList(false);
+    setShowClearIcon(false);
+    setDirectTo("/");
+  };
   const directPage = (result: Boolean) => {
     if (result) {
-      window.location.href = "http://localhost:3000/#/account";
+      window.location.href =
+        window.location.origin + "/NFTDetail?" + inputValue;
+      clearInput();
     } else {
-      window.location.href = "http://localhost:3000/#/trade";
+      window.location.href = window.location.origin + "/account?" + inputValue;
+      clearInput();
     }
   };
 
-  const directPageforNode = (result: Boolean) => {
-    if (result) {
-      setDirectTo(<Link to={`/account?` + inputValue}>搜索</Link>);
+  const directPageforNode = (result: string) => {
+    const resultType = /^\d+$/.test(result);
+    if (resultType) {
+      setDirectTo(`/NFTDetail?${result}`);
     } else {
-      setDirectTo(<Link to={`/trade?` + inputValue}>搜索</Link>);
+      setDirectTo(`/account?${result}`);
     }
   };
 
   const searchInput: Function = (value: any) => {
     if (value) {
       setShowSearchList(true);
-      itemValue.map((item) => {
-        item.value = value;
-      });
       setInputValue(value);
-      setItemValue([...itemValue]);
       setShowClearIcon(true);
-      const result = /^\d+$/.test(inputValue);
-      directPageforNode(result);
+      directPageforNode(value);
     } else {
-      setShowSearchList(false);
-      setShowClearIcon(false);
+      clearInput();
     }
-    console.log("inputValue", inputValue);
   };
 
   return (
@@ -76,6 +84,9 @@ export const InputProvider: FC = ({ children }) => {
         searchInput,
         directTo,
         searchFun,
+        inputValue,
+        setInputValue,
+        clearInput,
       }}
     >
       {children}
