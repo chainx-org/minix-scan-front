@@ -37,7 +37,7 @@ function Account(): React.ReactElement {
     {
       title: t('Account address'),
       content: (
-        <div className="text-blue-light">{res?.data ? res?.data : publicAddress.address}</div>
+        <div className="text-blue-light">{res?.data ? res?.data[0] : publicAddress.address}</div>
       ),
     },
     {
