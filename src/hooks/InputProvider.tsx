@@ -51,7 +51,7 @@ export const InputProvider: FC = ({ children }) => {
       window.location.href = "http://localhost:3000/NFTDetail?" + inputValue;
       clearInput();
     } else {
-      window.location.href = "http://localhost:3000/trade?" + inputValue;
+      window.location.href = "http://localhost:3000/account?" + inputValue;
       clearInput();
     }
   };
@@ -61,7 +61,7 @@ export const InputProvider: FC = ({ children }) => {
     if (resultType) {
       setDirectTo(<Link to={`/NFTDetail?` + result}>搜索</Link>);
     } else {
-      setDirectTo(<Link to={`/trade?` + result}>搜索</Link>);
+      setDirectTo(<Link to={`/account?` + result}>搜索</Link>);
     }
   };
 

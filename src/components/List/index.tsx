@@ -24,7 +24,8 @@ function List({
     >
       {list.map((item) => {
         return (
-          <ListItem
+          <ListItem 
+            key={item.title}
             title={item.title}
             content={item.content}
             loading={loading}
