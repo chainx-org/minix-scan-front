@@ -48,10 +48,10 @@ export const InputProvider: FC = ({ children }) => {
   };
   const directPage = (result: Boolean) => {
     if (result) {
-      window.location.href = "http://localhost:3000/#/NFTDetail?" + inputValue;
+      window.location.href = "http://localhost:3000/NFTDetail?" + inputValue;
       clearInput();
     } else {
-      window.location.href = "http://localhost:3000/#/trade?" + inputValue;
+      window.location.href = "http://localhost:3000/trade?" + inputValue;
       clearInput();
     }
   };

@@ -7,7 +7,12 @@ import noData from "../../assets/img_search_none.svg";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import homeBg from "../../assets/background2.png";
 import { InputContext } from "../../hooks/InputProvider";
-function IndexSearch(): React.ReactElement {
+interface NoDataPageProps {
+  searchValue?: String;
+}
+function NoDataPage({
+  searchValue,
+}: NoDataPageProps): React.ReactElement<NoDataPageProps> {
   const {
     isShow,
     isShowSearchList,
@@ -47,7 +52,7 @@ function IndexSearch(): React.ReactElement {
           <img src={noData} style={{ border: "1px dashed" }} />
         </div>
         <div className="mt-6 leading-25 text-xms font-xms font-semibold bg-text-darker text-center">
-          <span>“27364587234598723098423452345”</span>
+          <span>"{searchValue}"</span>
         </div>
         <div className="h-102 mt-2 leading-22 text-base font-base font-normal bg-text-lighter text-center">
           <span>找不到相关数据</span>
@@ -58,4 +63,4 @@ function IndexSearch(): React.ReactElement {
   );
 }
 
-export default IndexSearch;
+export default NoDataPage;

@@ -4,37 +4,31 @@ import Book from "../../../assets/book.svg";
 import Detail from "../../../assets/icon_detail.svg";
 import avatComing from "../../../assets/avat_coming.svg";
 import Star from "../../../assets/icon_star.svg";
-import { RequestData } from "../../../hooks/useSWR";
-import IndexSearch from "../../page-indexSearch";
-
-function CIDdetail(): React.ReactElement {
-  // const res = RequestData("/cids/", "9640837841");
+interface CIDProps {
+  isloading?: Boolean;
+  dataMsg?: any;
+}
+function CIDdetail({
+  isloading,
+  dataMsg,
+}: CIDProps): React.ReactElement<CIDProps> {
+  // console.log("dataMsg", dataMsg);
   let CidInfo: Array<[]> = [];
   let CidTime: string = "";
   let currentAddress = "";
-  // console.log("res.errMsg", res.errMsg);
-  // const [hasContent, setHasContent] = useState(true);
-  // if (res.errMsg) {
-  //   setHasContent(false);
-  // }
-  // if (res === "false") {
-  //   //没有请求到数据，跳转到那个空的页面吧？
-  // } else if (res === "loading") {
-  //   //加载中，出弹框
-  // } else {
-  //   // CidInfo = res.data;
-  //   // currentAddress = String(CidInfo[0]);
-  //   // currentAddress =
-  //   //   currentAddress.substring(0, 20) +
-  //   //   "..." +
-  //   //   currentAddress.substring(50 - 6);
-  //   // CidTime = moment(res.indexer.blockTime).format("YYYY.MM.DD HH:MM:SS");
-  // }
-
+  CidInfo = dataMsg.data;
+  if (CidInfo && CidInfo[0]) {
+    currentAddress = String(CidInfo[0]);
+    currentAddress =
+      currentAddress.substring(0, 20) +
+      "..." +
+      currentAddress.substring(50 - 6);
+    CidTime = moment(dataMsg.indexer.blockTime).format("YYYY.MM.DD HH:MM:SS");
+  }
   return (
     <div className="p-5">
       <div className="pt-3 px-3 pb-4 font-semibold text-black-darker text-2xl leading-8">
-        CID {CidInfo[1]}
+        CID {isloading ? "-" : CidInfo[1]}
       </div>
       <div className="flex flex-col border border-lang rounded-rounded">
         <div className="flex items-center border-b border-lang p-4">
@@ -68,11 +62,13 @@ function CIDdetail(): React.ReactElement {
         <div className="flex flex-col p-4 bg-gray-dark border-b border-lang text-black-darker font-normal text-xs">
           <div className="flex justify-between pb-4">
             <div>Contract Address</div>
-            <div className="text-blue-light">{currentAddress}</div>
+            <div className="text-blue-light">
+              {isloading ? "-" : currentAddress}
+            </div>
           </div>
           <div className="flex justify-between pb-4">
             <div>Age</div>
-            <div>{CidTime}</div>
+            <div>{isloading ? "-" : CidTime}</div>
           </div>
           {/* <div className="flex justify-between pb-4">
             <div>bonus</div>
@@ -88,7 +84,6 @@ function CIDdetail(): React.ReactElement {
           </div> */}
         </div>
       </div>
-      {/* {hasContent && <IndexSearch />} */}
     </div>
   );
 }
