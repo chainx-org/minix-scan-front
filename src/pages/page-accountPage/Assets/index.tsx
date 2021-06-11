@@ -7,7 +7,6 @@ function Assets(): React.ReactElement {
   const { t } = useTranslation();
   const addressID = window.location.search.slice(1,window.location.search.length)
   const res = RequestData("/transfer?address=",addressID);
-  console.log(res)
   const columns: TableHead[] = [
     {
       title: t('Assets'),
