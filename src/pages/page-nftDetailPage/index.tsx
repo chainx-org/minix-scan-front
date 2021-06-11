@@ -11,8 +11,10 @@ import TopSearchBar from "../../components/TopSearch";
 import CIDdetail from "./CIDdetail";
 import { RequestData } from "../../hooks/useSWR";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 function NFTDetail(): React.ReactElement {
+  const { t } = useTranslation();
   const cid = window.location.search.slice(1, window.location.search.length);
   // const cid = "401046720";
   const res = RequestData("/cids/", cid);
@@ -38,27 +40,27 @@ function NFTDetail(): React.ReactElement {
 
   const columns: TableHead[] = [
     {
-      title: "类型",
+      title: t('Type'),
       dataIndex: "type",
       key: "type",
     },
     {
-      title: "时间戳",
+      title: t('Timestamp'),
       dataIndex: "time",
       key: "time",
     },
     {
-      title: "发送方",
+      title: t('Sender'),
       dataIndex: "send",
       key: "send",
     },
     {
-      title: "接收方",
+      title: t('Recipient'),
       key: "receive",
       dataIndex: "receive",
     },
     {
-      title: "交易哈希",
+      title: t('Transaction hash'),
       key: "transferHash",
       dataIndex: "transferHash",
     },
@@ -89,7 +91,7 @@ function NFTDetail(): React.ReactElement {
           <>
             {res && !res.errMsg && (
               <>
-                <TopSearchBar titleName="NFT详情" />
+                <TopSearchBar titleName={t('NFT detail')} />
                 <div className="px-12 pb-6 bg-gray-light">
                   <div className="grid grid-cols-card mb-6">
                     <Card className="mr-6">

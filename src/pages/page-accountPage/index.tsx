@@ -46,29 +46,29 @@ function Account(): React.ReactElement {
 
   const list = [
     {
-      title: "账户地址",
+      title: t('Account address'),
       content: (
         <div className="text-blue-light">{publicAddress.address}</div>
       ),
     },
     {
-      title: "账户公钥",
+      title: t('Account public key'),
       content: (
         <div className="text-blue-light">{publicAddress.publickey}</div>
       ),
     },
     {
-      title: "交易数",
+      title: t('Number of transactions'),
       content: <div className="text-black-dark">-</div>,
     },
   ];
   const tabList: TabInfo[] = [
     {
-      title: "资产",
+      title: t("Assets"),
       content: <Assets />,
     },
     {
-      title: "转账",
+      title: t('Transfer'),
       content: <Transfer />,
     }
   ];

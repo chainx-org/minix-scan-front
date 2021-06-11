@@ -52,11 +52,11 @@ function CIDdetail({
           </div>
           <div className="flex flex-col">
             <div className="text-black-darker font-normal text-xs">
-              这里是简介描述两来下标容使要花度六听科始制儿与南们号声则清至规起少存能为先复车。
+              这里是简介描述-----。
             </div>
             <br />
             <div className="text-black-darker font-normal text-xs">
-              这里是简介描述两来下标容使要花度六。
+              这里是简介描述-----。
             </div>
           </div>
         </div>

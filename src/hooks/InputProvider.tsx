@@ -32,7 +32,7 @@ export const InputProvider: FC = ({ children }) => {
     setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
-  const [directTo, setDirectTo] = useState(<Link to="/">搜索</Link>);
+  const [directTo, setDirectTo] = useState(<Link to="/">{t('Search')}</Link>);
   const [inputValue, setInputValue] = useState("");
   const searchFun: Function = () => {
     if (inputValue) {
@@ -46,7 +46,7 @@ export const InputProvider: FC = ({ children }) => {
     setInputValue("");
     setShowSearchList(false);
     setShowClearIcon(false);
-    setDirectTo(<Link to={`/`}>搜索</Link>);
+    setDirectTo(<Link to={`/`}>{t('Search')}</Link>);
   };
   const directPage = (result: Boolean) => {
     if (result) {

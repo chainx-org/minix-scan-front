@@ -7,12 +7,14 @@ import noData from "../../assets/img_search_none.svg";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import homeBg from "../../assets/background2.png";
 import { InputContext } from "../../hooks/InputProvider";
+import { useTranslation } from "react-i18next";
 interface NoDataPageProps {
   searchValue?: String;
 }
 function NoDataPage({
   searchValue,
 }: NoDataPageProps): React.ReactElement<NoDataPageProps> {
+  const { t } = useTranslation();
   const {
     isShow,
     isShowSearchList,
@@ -55,7 +57,7 @@ function NoDataPage({
           <span>"{searchValue}"</span>
         </div>
         <div className="h-102 mt-2 leading-22 text-base font-base font-normal bg-text-lighter text-center">
-          <span>找不到相关数据</span>
+          <span>{t('No relevant data found')}</span>
         </div>
       </div>
       <Footer className="fixed bottom-0" />
