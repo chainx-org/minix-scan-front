@@ -4,11 +4,8 @@ import React, {
   useContext,
   FC,
   ReactNode,
-  useEffect,
 } from "react";
 import { ClearBtnContext } from "../hooks/ClearBtnProvider";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import ClearIcon from "../components/ClearIcon/index";
 import { useTranslation } from "react-i18next";
 
 interface InputData {
@@ -25,46 +22,44 @@ export const InputContext = createContext<InputData>({} as InputData);
 export const InputProvider: FC = ({ children }) => {
   const { t } = useTranslation();
   const {
-    isShowSearchList,
-    showClearIcon,
-    itemValue,
     setShowSearchList,
     setShowClearIcon,
-    setItemValue,
   } = useContext(ClearBtnContext);
   const [directTo, setDirectTo] = useState("/");
   const [inputValue, setInputValue] = useState("");
-  const searchFun: Function = () => {
-    if (inputValue) {
-      const result = /^\d+$/.test(inputValue);
-      directPage(result);
-    }
-  };
 
-  const clearInput = () => {
-    setInputValue("");
-    setShowSearchList(false);
-    setShowClearIcon(false);
-    setDirectTo("/");
-  };
-  const directPage = (result: Boolean) => {
-    if (result) {
+
+  const searchFun = () => {
+    if (inputValue.length <= 12) {
       window.location.href =
         window.location.origin + "/NFTDetail?" + inputValue;
       clearInput();
-    } else {
+    } else if (inputValue.length > 12 && inputValue.length < 50){
       window.location.href = window.location.origin + "/account?" + inputValue;
+      clearInput();
+    } else {
+      window.location.href = window.location.origin + "/trade?" + inputValue;
       clearInput();
     }
   };
 
   const directPageforNode = (result: string) => {
-    const resultType = /^\d+$/.test(result);
-    if (resultType) {
+    if (result.length <= 12) {
       setDirectTo(`/NFTDetail?${result}`);
-    } else {
+    } else if (result.length > 12 && result.length < 50) {
+      setShowSearchList(false);
       setDirectTo(`/account?${result}`);
+    } else {
+      setShowSearchList(false);
+      setDirectTo(`/trade?${result}`);
     }
+  };
+  
+  const clearInput = () => {
+    setInputValue("");
+    setShowSearchList(false);
+    setShowClearIcon(false);
+    setDirectTo("/");
   };
 
   const searchInput: Function = (value: any) => {

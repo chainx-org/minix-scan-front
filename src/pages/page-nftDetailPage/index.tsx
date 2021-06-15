@@ -22,12 +22,13 @@ function NFTDetail(): React.ReactElement {
 
   const [recordData, setRecordData] = useState([]);
   const [isLoadingRecordList, setIsLoadingRecordList] = useState(false);
-  async function b() {
+  async function getTransferRecord() {
     try {
       let result = await axios(
         `http://192.168.31.173:3213/transfer?address=${res.data[0]}`
-        // `http://192.168.31.173:3213/transfer?address=5SuGtKvv9VNR6eD5hKCQWpZPZSP4eDmpfAnKxScHqSv5JsFF`
+        // `http://192.168.31.173:3213/transfer?addr?address=ess=5SuGtKvv9VNR6eD5hKCQWpZPZSP4eDmpfAnKxScHqSv5JsFF`
       );
+      // let result = RequestData("/transfer?address=", 'ess=5SuGtKvv9VNR6eD5hKCQWpZPZSP4eDmpfAnKxScHqSv5JsFF')
       setRecordData(result.data.items);
       setIsLoadingRecordList(true);
       console.log(result, "result");
@@ -40,8 +41,9 @@ function NFTDetail(): React.ReactElement {
       // }
     }
   }
-  useEffect(() => {
-    b();
+  useEffect(() =>
+  {
+    getTransferRecord();
   }, [res]);
 
   const columns: TableHead[] = [

@@ -40,13 +40,18 @@ function Search({
   const clearInputValue = () => {
     clearInput();
   };
-  let itemValue = ["#区块#", "#账户#", "#交易#", "#CID#"];
+  let itemValue = [{
+    name: "#CID#",
+    type: "/NFTDetail?",
+  },{
+    name: "#区块#",
+    type: "/Block?",
+  }];
   return (
     <div className={`relative ${className}`}>
       <Search
         ref={searchButton}
         placeholder={t("Search block / transaction / CID / account") || ""}
-        // enterButton={directTo}
         enterButton={<Link to={`${directTo}`}>{t("Search")}</Link>}
         prefix={SearchIcon}
         size="large"
@@ -60,11 +65,11 @@ function Search({
         onSearch={clearInputValue}
         suffix={clearIconControl}
       />
-      {/* {isShowSearchList && (
+      {isShowSearchList && (
         <div className={`shadow-sm mt-3 rounded-rounded mr-${mr}`}>
           <SearchList itemList={itemValue} />
         </div>
-      )} */}
+      )}
     </div>
   );
 }
