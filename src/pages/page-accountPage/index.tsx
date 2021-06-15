@@ -15,7 +15,8 @@ import { RequestData } from "../../hooks/useSWR";
 import Assets from "./Assets";
 import Transfer from "./Transfer";
 
-function Account(): React.ReactElement {
+function Account(): React.ReactElement
+{
   const { t } = useTranslation();
   const addressID = window.location.search.slice(1, window.location.search.length)
   const [publicAddress, setPublicAddress] = useState({
@@ -23,8 +24,10 @@ function Account(): React.ReactElement {
     publickey: ''
   });
   const res = RequestData("/address/", addressID);
-  useEffect(() => {
-    async function addressMsg() {
+  useEffect(() =>
+  {
+    async function addressMsg()
+    {
       if (res && res.data) {
         const publicAddress = await axios.get(`${urlHead}/publickey/${res.data[0]}`)
           .then((res) => res.data).catch((err) => { console.log(err) });
@@ -67,7 +70,9 @@ function Account(): React.ReactElement {
       <div>
         <Header />
         {
-          res === 'loading' ? <Spin /> :
+          res === 'loading' ?
+            <div className='flex flex-col py-6'> <Spin /></div>
+            :
             <>
               {res && res.errMsg ? <div className='flex flex-col'><NoContent title={addressID} /></div> : <>
                 <div className='flex flex-col justify-start'>
