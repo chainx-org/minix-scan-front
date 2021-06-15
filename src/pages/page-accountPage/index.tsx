@@ -2,7 +2,7 @@ import { Spin } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { urlHead } from "../../api/user";
+import { urlHead } from "../../hooks/useRequest";
 import Card from "../../components/Card";
 import FlexDiv from "../../components/FlexDiv";
 import Footer from "../../components/Footer";
@@ -11,7 +11,7 @@ import List from "../../components/List";
 import NoContent from "../../components/NoContent";
 import SwitchTabs, { TabInfo } from "../../components/SwitchTabs";
 import TopSearchBar from "../../components/TopSearch";
-import { RequestData } from "../../hooks/useSWR";
+import { useRequest } from "../../hooks/useRequest";
 import Assets from "./Assets";
 import Transfer from "./Transfer";
 
@@ -23,7 +23,7 @@ function Account(): React.ReactElement
     address: '',
     publickey: ''
   });
-  const res = RequestData("/address/", addressID);
+  const res = useRequest("/address/", addressID);
   useEffect(() =>
   {
     async function addressMsg()

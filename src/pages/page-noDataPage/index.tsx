@@ -2,27 +2,22 @@ import React, { useState, useEffect, useContext } from "react";
 import Header from "../../components/Header";
 import Search from "../../components/Search";
 import Footer from "../../components/Footer/index";
-import SearchList from "../../components/SearchList";
 import noData from "../../assets/img_search_none.svg";
-import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
+import { ClearBtnContext } from "../../components/Provider/ClearBtnProvider";
 import homeBg from "../../assets/background2.png";
-import { InputContext } from "../../hooks/InputProvider";
+import { InputContext } from "../../components/Provider/InputProvider";
 import { useTranslation } from "react-i18next";
-interface NoDataPageProps {
+interface NoDataPageProps
+{
   searchValue?: String;
 }
 function NoDataPage({
   searchValue,
-}: NoDataPageProps): React.ReactElement<NoDataPageProps> {
+}: NoDataPageProps): React.ReactElement<NoDataPageProps>
+{
   const { t } = useTranslation();
   const {
-    isShow,
-    isShowSearchList,
     showClearIcon,
-    itemValue,
-    setIsShow,
-    setShowSearchList,
-    setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
   const { searchInput, searchFun, directTo } = useContext(InputContext);

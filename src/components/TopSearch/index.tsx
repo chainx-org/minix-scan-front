@@ -1,8 +1,7 @@
 import React, { ReactNode, useContext } from "react";
 import Search from "../Search";
-import SearchList from "../../components/SearchList";
-import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
-import { InputContext } from "../../hooks/InputProvider";
+import { ClearBtnContext } from "../Provider/ClearBtnProvider";
+import { InputContext } from "../Provider/InputProvider";
 import TopTitleButton from "../../components/TopTitleButton"
 
 interface IndexProps

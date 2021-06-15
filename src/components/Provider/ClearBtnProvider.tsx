@@ -1,6 +1,7 @@
 import React, { useState, createContext, FC } from "react";
-interface clearBtnData {
-  isShow?: Boolean | String;
+interface clearBtnData
+{
+  isShow: Boolean;
   isShowSearchList: Boolean | String;
   showClearIcon: Boolean | String;
   itemValue: Array<any>;
@@ -11,7 +12,8 @@ interface clearBtnData {
 }
 
 export const ClearBtnContext = createContext<clearBtnData>({} as clearBtnData);
-export const ClearBtnProvider: FC = ({ children }) => {
+export const ClearBtnProvider: FC = ({ children }) =>
+{
   let [isShow, setIsShow] = useState(false);
   let [isShowSearchList, setShowSearchList] = useState(false);
   let [showClearIcon, setShowClearIcon] = useState(false);
@@ -33,7 +35,7 @@ export const ClearBtnProvider: FC = ({ children }) => {
     //   type: "/NFTDetail?",
     // }
   ]
-);
+  );
 
   return (
     <ClearBtnContext.Provider

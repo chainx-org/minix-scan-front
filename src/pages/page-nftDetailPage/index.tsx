@@ -9,7 +9,7 @@ import NoContent from "../../components/NoContent";
 import BasicTable, { TableHead } from "../../components/Table";
 import TopSearchBar from "../../components/TopSearch";
 import CIDdetail from "./CIDdetail";
-import { RequestData } from "../../hooks/useSWR";
+import { useRequest } from "../../hooks/useRequest";
 import { shortenString } from "../../helper/FormatHelper";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
@@ -19,7 +19,7 @@ function NFTDetail(): React.ReactElement
   const { t } = useTranslation();
   const cid = window.location.search.slice(1, window.location.search.length);
   // const cid = "401046720";
-  const res = RequestData("/cids/", cid);
+  const res = useRequest("/cids/", cid);
 
   const [recordData, setRecordData] = useState([]);
   const [isLoadingRecordList, setIsLoadingRecordList] = useState(false);

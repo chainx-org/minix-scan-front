@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import clearIcon from "../../assets/close-24px.svg";
-import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
+import { ClearBtnContext } from "../Provider/ClearBtnProvider";
 
 function ClearIcon(
   searchButton?: React.MutableRefObject<any>
-): React.ReactElement {
+): React.ReactElement
+{
   const { setItemValue, setShowSearchList, setShowClearIcon } =
     useContext(ClearBtnContext);
-  const clearInputFun = () => {
+  const clearInputFun = () =>
+  {
     // let initData = [{
     //   name: "#区块#",
     //   type: "1",

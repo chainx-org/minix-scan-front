@@ -1,6 +1,7 @@
 import React from "react";
-import {DirectToPage } from "../../hooks/DirectPage"
-interface itemProps {
+import { DirectToPage } from "../../helper/DirectPage"
+interface itemProps
+{
   itemTitle: String;
   inputValue: String;
   itemType: String;
@@ -14,11 +15,10 @@ function Item({
 {
   const clickSearchListItem = () =>
   {
-    // console.log(itemType, 'itemType')
-    DirectToPage(itemType,inputValue)
+    DirectToPage(itemType, inputValue)
   }
   return (
-    <div className="h-10 py-2.5 text-gray hover:bg-gray-dark" onClick={clickSearchListItem }>
+    <div className="h-10 py-2.5 text-gray hover:bg-gray-dark" onClick={clickSearchListItem}>
       <span className="text-base ml-4 leading-20 ">
         {itemTitle}
         {inputValue}

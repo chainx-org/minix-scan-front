@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { DirectToPage } from "../../hooks/DirectPage"
-import { InputContext } from "../../hooks/InputProvider";
+import { DirectToPage } from "../../helper/DirectPage"
+import { InputContext } from "../Provider/InputProvider";
 interface itemProps
 {
     title: String,

@@ -5,7 +5,7 @@ import React, {
   FC,
   ReactNode,
 } from "react";
-import { ClearBtnContext } from "../hooks/ClearBtnProvider";
+import { ClearBtnContext } from "./ClearBtnProvider";
 import { useTranslation } from "react-i18next";
 
 interface InputData
