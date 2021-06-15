@@ -24,13 +24,13 @@ function TopTitleButton({
     }
     return (
         <div className="flex justify-between py-2 h-16" >
-            <div className="my-2 mx-2 w-6 h-6 bg-gray-arrow cursor-pointer" onClick={reduceBlock}>
+            <div className="my-2 mx-2 w-6 h-6 bg-gray-arrow cursor-pointer rounded-rounded" onClick={reduceBlock}>
                 <div className="text-center text-textColor-white ">{`<`}</div>
             </div>
             <div className="py-2">
                 {title}#{blockValue}
             </div>
-            <div className="my-2 mx-2 w-6 h-6 bg-gray-arrow cursor-pointer" onClick={increaseBlock}>
+            <div className="my-2 mx-2 w-6 h-6 bg-gray-arrow cursor-pointer rounded-rounded" onClick={increaseBlock}>
                 <div className="text-center text-textColor-white">{`>`}</div>
             </div>
         </div>
