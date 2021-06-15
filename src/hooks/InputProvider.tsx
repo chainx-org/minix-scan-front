@@ -8,7 +8,8 @@ import React, {
 import { ClearBtnContext } from "../hooks/ClearBtnProvider";
 import { useTranslation } from "react-i18next";
 
-interface InputData {
+interface InputData
+{
   searchInput: Function;
   searchFun: Function;
   directTo: ReactNode;
@@ -19,7 +20,8 @@ interface InputData {
 
 export const InputContext = createContext<InputData>({} as InputData);
 
-export const InputProvider: FC = ({ children }) => {
+export const InputProvider: FC = ({ children }) =>
+{
   const { t } = useTranslation();
   const {
     setShowSearchList,
@@ -29,12 +31,13 @@ export const InputProvider: FC = ({ children }) => {
   const [inputValue, setInputValue] = useState("");
 
 
-  const searchFun = () => {
+  const searchFun = () =>
+  {
     if (inputValue.length <= 12) {
       window.location.href =
         window.location.origin + "/NFTDetail?" + inputValue;
       clearInput();
-    } else if (inputValue.length > 12 && inputValue.length < 50){
+    } else if (inputValue.length > 12 && inputValue.length < 50) {
       window.location.href = window.location.origin + "/account?" + inputValue;
       clearInput();
     } else {
@@ -43,7 +46,8 @@ export const InputProvider: FC = ({ children }) => {
     }
   };
 
-  const directPageforNode = (result: string) => {
+  const directPageforNode = (result: string) =>
+  {
     if (result.length <= 12) {
       setDirectTo(`/NFTDetail?${result}`);
     } else if (result.length > 12 && result.length < 50) {
@@ -54,15 +58,17 @@ export const InputProvider: FC = ({ children }) => {
       setDirectTo(`/trade?${result}`);
     }
   };
-  
-  const clearInput = () => {
+
+  const clearInput = () =>
+  {
     setInputValue("");
     setShowSearchList(false);
     setShowClearIcon(false);
     setDirectTo("/");
   };
 
-  const searchInput: Function = (value: any) => {
+  const searchInput: Function = (value: any) =>
+  {
     if (value) {
       setShowSearchList(true);
       setInputValue(value);
