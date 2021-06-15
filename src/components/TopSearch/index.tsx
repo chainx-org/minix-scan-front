@@ -1,23 +1,24 @@
-import React, { useContext } from "react";
+import React, { ReactNode, useContext } from "react";
 import Search from "../Search";
 import SearchList from "../../components/SearchList";
 import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
 import { InputContext } from "../../hooks/InputProvider";
+import TopTitleButton from "../../components/TopTitleButton"
 
-interface IndexProps {
-  titleName: String;
+interface IndexProps
+{
+  titleName?: String;
+  titleNode?: Boolean | String;
+  titleValue?: String
 }
 function TopSearchBar({
   titleName,
-}: IndexProps): React.ReactElement<IndexProps> {
+  titleNode,
+  titleValue
+}: IndexProps): React.ReactElement<IndexProps>
+{
   const {
-    isShow,
-    isShowSearchList,
     showClearIcon,
-    itemValue,
-    setIsShow,
-    setShowSearchList,
-    setShowClearIcon,
     setItemValue,
   } = useContext(ClearBtnContext);
   const { searchInput, searchFun, directTo } = useContext(InputContext);
@@ -25,9 +26,10 @@ function TopSearchBar({
   return (
     <>
       <div className="flex justify-between px-12 py-3 h-16">
-        <div className="py-2">
+        {!titleNode && <div className="py-2">
           <span className="text-base leading-20 ">{titleName}</span>
-        </div>
+        </div>}
+        {titleNode && <TopTitleButton title={titleName ? titleName : ""} value={titleValue ? titleValue : ""} />}
         <div className="w-90">
           <Search
             className={"topSearch"}

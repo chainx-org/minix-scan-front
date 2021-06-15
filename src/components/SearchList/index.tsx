@@ -10,7 +10,7 @@ function SearchList({
   const { inputValue } = useContext(InputContext);
   console.log('itemList',itemList)
   return (
-    <div className="pt-2.5 pb-2.5 bg-white-light  overflow-y-scroll">
+    <div className="pt-2.5 pb-2.5 bg-white-light overflow-y-scroll">
       {itemList.map((item, index) =>
       {
         if (inputValue.length<12&&(item.name=='#区块#'||item.name =='#CID#')) {

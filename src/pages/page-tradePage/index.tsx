@@ -6,23 +6,25 @@ import Fail from "../../assets/fail.svg";
 import TopSearchBar from "../../components/TopSearch";
 import Header from "../../components/Header";
 import FlexDiv from "../../components/FlexDiv";
-
-function Trade(): React.ReactElement {
+import { useTranslation } from "react-i18next";
+function Trade(): React.ReactElement
+{
+  const { t } = useTranslation();
   const list = [
     {
-      title: "区块高度",
+      title: t('Block height'),
       content: <div className="text-blue-light">672812</div>,
     },
     {
-      title: "出块时间",
+      title: t('A piece of time'),
       content: <div className="text-black-dark">2018.09.12 16:24:36</div>,
     },
     {
-      title: "序号",
+      title: t('Serial number'),
       content: <div className="text-black-dark">345</div>,
     },
     {
-      title: "交易哈希",
+      title: t('Transaction hash'),
       content: (
         <div className="text-blue-light">
           0x6614d177b8532b615a23591a9246f7c2a380c301f6
@@ -30,7 +32,7 @@ function Trade(): React.ReactElement {
       ),
     },
     {
-      title: "发送人",
+      title: t('Sender'),
       content: (
         <div className="text-blue-light">
           0x6614d177b8532b615a23591a9246f7c2a380c301f
@@ -38,7 +40,7 @@ function Trade(): React.ReactElement {
       ),
     },
     {
-      title: "模块",
+      title: t('Module'),
       content: (
         <div className="text-black-darker text-center py-1.5 border border-vote rounded-card w-18">
           投票选举
@@ -46,7 +48,7 @@ function Trade(): React.ReactElement {
       ),
     },
     {
-      title: "参数",
+      title: t('Parameter'),
       content: (
         <div className="text-black-dark break-all">
           0x3c9d7931c7c6cb4d8582071f40cf08b1538927e10x3c9d7931c7c6cb4d8582071f40cf08b1538927e10x3c9d7931c7c6cb4d8582071f40cf08b1538927e10x3c9d7931c7c6927e10x3c9dcb4d8582071f40cf08b1538927e10x3c9d7931c7c6cb4d8582071f40cf08b1538927e1
@@ -54,7 +56,7 @@ function Trade(): React.ReactElement {
       ),
     },
     {
-      title: "调用",
+      title: t('Call'),
       content: (
         <div className="text-black-darker text-center py-1.5 border border-pledge rounded-card w-12">
           抵押
@@ -62,7 +64,7 @@ function Trade(): React.ReactElement {
       ),
     },
     {
-      title: "结果",
+      title: t('Stake'),
       content: (
         <div className="text-black-dark flex items-center">
           {true ? (
@@ -80,7 +82,7 @@ function Trade(): React.ReactElement {
       ),
     },
     {
-      title: "签名",
+      title: t('Signature'),
       content: (
         <div className="text-black-dark break-all">
           0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd
@@ -88,11 +90,11 @@ function Trade(): React.ReactElement {
       ),
     },
     {
-      title: "版本",
+      title: t('Version'),
       content: <div className="text-black-dark">123</div>,
     },
     {
-      title: "data",
+      title:t('data'),
       content: (
         <div className="text-black-dark break-all">
           0x3c9d7931c7c6cb4d8582071f40cf08b1538927e10x3c9d7931c7c6cb4d8582071f40cf08b1538927e10x3c9d7931c7c6cb4d8582071f40cf08b1538927e10x3c9d7931c7c6cb4d8582071f40cf08b1538927e10x3c9d7931c7c6cb4d8582071f40cf08b1538927e1
@@ -103,7 +105,7 @@ function Trade(): React.ReactElement {
   return (
     <FlexDiv>
       <Header />
-      <TopSearchBar titleName="交易详情" />
+      <TopSearchBar titleName={ t('Transaction detail')} />
       <div className="px-12 pb-6 bg-gray-light">
         <List list={list} loading={true} />
       </div>
