@@ -20,6 +20,7 @@ const App: React.FC = () => {
             <Route path="/trade" component={Trade} />
             <Route path="/NFTDetail" component={NFTDetail} />
             <Route path="/noDataPage" component={NoDataPage} />
+            <Route path="/Block" component={ Block}/>
           </Switch>
         </InputProvider>
       </ClearBtnProvider>
