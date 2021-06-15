@@ -74,17 +74,20 @@ function Account(): React.ReactElement
             <div className='flex flex-col py-6'> <Spin /></div>
             :
             <>
-              {res && res.errMsg ? <div className='flex flex-col'><NoContent title={addressID} /></div> : <>
-                <div className='flex flex-col justify-start'>
-                  <TopSearchBar titleName={t('Account detail')} />
-                  <div className="px-12 pb-6 bg-gray-light">
-                    <List list={list} loading={res === 'loading'} />
-                    <Card
-                      children={<SwitchTabs size="lg" tabList={tabList} />}
-                      className="mt-6"
-                    />
+              {!res ? <div className='flex flex-col'><NoContent title={addressID} /></div> :
+                <>
+                  <div className='flex flex-col justify-start'>
+                    <TopSearchBar titleName={t('Account detail')} />
+                    <div className="px-12 pb-6 bg-gray-light">
+                      <List list={list} loading={res === 'loading'} />
+                      <Card
+                        children={<SwitchTabs size="lg" tabList={tabList} />}
+                        className="mt-6"
+                      />
+                    </div>
                   </div>
-                </div></>}
+                </>
+              }
             </>
         }
       </div>

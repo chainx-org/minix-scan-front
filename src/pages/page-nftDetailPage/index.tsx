@@ -104,11 +104,10 @@ function NFTDetail(): React.ReactElement
       ) : (
         <>
           <>
-            {(res && res.errMsg) ||
-              (res && res === "false" && <NoContent title={cid} />)}
+            {!res && <NoContent title={cid} />}
           </>
           <>
-            {res && !res.errMsg && res !== "false" && (
+            {res && (
               <>
                 <TopSearchBar titleName={t("NFT detail")} />
                 <div className="px-12 pb-6 bg-gray-light">

@@ -8,9 +8,10 @@ export const fetcher = (url: string, value: string) =>
 export function useRequest(url: string, value: string)
 {
   const { data, error } = useSWR([url, value], fetcher);
-  if (error) return "false";
+  if (error) return false;
   if (!data) return "loading";
-  if (data) return data;
+  if (data && data.errMsg) return false;
+  if (data && !data.errMsg) return data;
 }
 
 
