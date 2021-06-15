@@ -14,7 +14,8 @@ import { shortenString } from "../../helper/FormatHelper";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
-function NFTDetail(): React.ReactElement {
+function NFTDetail(): React.ReactElement
+{
   const { t } = useTranslation();
   const cid = window.location.search.slice(1, window.location.search.length);
   // const cid = "401046720";
@@ -22,13 +23,12 @@ function NFTDetail(): React.ReactElement {
 
   const [recordData, setRecordData] = useState([]);
   const [isLoadingRecordList, setIsLoadingRecordList] = useState(false);
-  async function getTransferRecord() {
+  async function getTransferRecord()
+  {
     try {
       let result = await axios(
-        `http://192.168.31.173:3213/transfer?address=${res.data[0]}`
-        // `http://192.168.31.173:3213/transfer?addr?address=ess=5SuGtKvv9VNR6eD5hKCQWpZPZSP4eDmpfAnKxScHqSv5JsFF`
+        `https://miniscan-server.coming.chat/transfer?address=${res.data[0]}`
       );
-      // let result = RequestData("/transfer?address=", 'ess=5SuGtKvv9VNR6eD5hKCQWpZPZSP4eDmpfAnKxScHqSv5JsFF')
       setRecordData(result.data.items);
       setIsLoadingRecordList(true);
       console.log(result, "result");

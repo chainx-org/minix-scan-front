@@ -1,5 +1,5 @@
 import axios from "axios";
-export const urlHead = "http://192.168.31.173:3213";
+export const urlHead = "https://miniscan-server.coming.chat";
 
 const fetcher = (url: string, value: string) =>
   axios.get(urlHead.concat(url).concat(value)).then((res) => res.data);
