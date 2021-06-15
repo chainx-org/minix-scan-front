@@ -8,12 +8,27 @@ function ClearIcon(
   const { setItemValue, setShowSearchList, setShowClearIcon } =
     useContext(ClearBtnContext);
   const clearInputFun = () => {
-    let initData = ["#区块#", "#账户#", "#交易#", "#CID#"];
+    // let initData = [{
+    //   name: "#区块#",
+    //   type: "1",
+    // },
+    // {
+    //   name: "#账户#",
+    //   type: "/account?",
+    // },
+    // {
+    //   name: "#交易#",
+    //   type: "3",
+    // },
+    // {
+    //   name: "#CID#",
+    //   type: "/NFTDetail?",
+    // }];
 
     if (searchButton) {
       searchButton.current.state.value = "";
     }
-    setItemValue(initData);
+    // setItemValue(initData);
     setShowSearchList(false);
     setShowClearIcon(false);
   };
