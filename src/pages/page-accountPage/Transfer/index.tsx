@@ -2,15 +2,16 @@ import React, { useEffect } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import BasicTable, { TableHead } from "../../../components/Table";
-import { RequestData } from "../../../hooks/useSWR";
+import { useRequest } from "../../../hooks/useRequest";
 
-function Transfer(): React.ReactElement {
+function Transfer(): React.ReactElement
+{
   const { t } = useTranslation();
   const addressID = window.location.search.slice(
     1,
     window.location.search.length
   );
-  const res = RequestData("/transfer?address=", addressID);
+  const res = useRequest("/transfer?address=", addressID);
   const columns: TableHead[] = [
     {
       title: t("Block height"),

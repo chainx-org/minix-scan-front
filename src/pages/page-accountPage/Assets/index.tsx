@@ -1,12 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import BasicTable, { TableHead } from "../../../components/Table";
-import { RequestData } from "../../../hooks/useSWR";
+import { useRequest } from "../../../hooks/useRequest";
 
-function Assets(): React.ReactElement {
+function Assets(): React.ReactElement
+{
   const { t } = useTranslation();
-  const addressID = window.location.search.slice(1,window.location.search.length)
-  const res = RequestData("/transfer?address=",addressID);
+  const addressID = window.location.search.slice(1, window.location.search.length)
+  const res = useRequest("/transfer?address=", addressID);
   const columns: TableHead[] = [
     {
       title: t('Assets'),
@@ -30,20 +31,20 @@ function Assets(): React.ReactElement {
     }
   ];
 
-  const data = res.items?.map((item:any,num: number)=>({
-     key: num,
+  const data = res.items?.map((item: any, num: number) => ({
+    key: num,
     'assets': <div>CID {item.cid}</div>,
     'assetType': <div>-</div>,
     'amount': <div>-</div>,
-    'lastTrade': <div className='text-blue-light'>{item.extrinsicHash.substring(0,20)+'...'+item.extrinsicHash.substring(item.extrinsicHash.length-20)}</div>
+    'lastTrade': <div className='text-blue-light'>{item.extrinsicHash.substring(0, 20) + '...' + item.extrinsicHash.substring(item.extrinsicHash.length - 20)}</div>
   }))
 
   return (
     <div className=''>
-      <BasicTable 
-        columns={columns} 
-        dataSource={data} 
-        size='large' 
+      <BasicTable
+        columns={columns}
+        dataSource={data}
+        size='large'
         loading={res === 'loading'}
         pagination={{
           defaultPageSize: 5,

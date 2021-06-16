@@ -9,24 +9,25 @@ import NoContent from "../../components/NoContent";
 import BasicTable, { TableHead } from "../../components/Table";
 import TopSearchBar from "../../components/TopSearch";
 import CIDdetail from "./CIDdetail";
-import { RequestData } from "../../hooks/useSWR";
+import { useRequest } from "../../hooks/useRequest";
 import { shortenString } from "../../helper/FormatHelper";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
-function NFTDetail(): React.ReactElement {
+function NFTDetail(): React.ReactElement
+{
   const { t } = useTranslation();
   const cid = window.location.search.slice(1, window.location.search.length);
   // const cid = "401046720";
-  const res = RequestData("/cids/", cid);
+  const res = useRequest("/cids/", cid);
 
   const [recordData, setRecordData] = useState([]);
   const [isLoadingRecordList, setIsLoadingRecordList] = useState(false);
-  async function b() {
+  async function getTransferRecord()
+  {
     try {
       let result = await axios(
-        `http://192.168.31.173:3213/transfer?address=${res.data[0]}`
-        // `http://192.168.31.173:3213/transfer?address=5SuGtKvv9VNR6eD5hKCQWpZPZSP4eDmpfAnKxScHqSv5JsFF`
+        `https://miniscan-server.coming.chat/transfer?address=${res.data[0]}`
       );
       setRecordData(result.data.items);
       setIsLoadingRecordList(true);
@@ -40,8 +41,9 @@ function NFTDetail(): React.ReactElement {
       // }
     }
   }
-  useEffect(() => {
-    b();
+  useEffect(() =>
+  {
+    getTransferRecord();
   }, [res]);
 
   const columns: TableHead[] = [
@@ -102,11 +104,10 @@ function NFTDetail(): React.ReactElement {
       ) : (
         <>
           <>
-            {(res && res.errMsg) ||
-              (res && res === "false" && <NoContent title={cid} />)}
+            {!res && <NoContent title={cid} />}
           </>
           <>
-            {res && !res.errMsg && res !== "false" && (
+            {res && (
               <>
                 <TopSearchBar titleName={t("NFT detail")} />
                 <div className="px-12 pb-6 bg-gray-light">

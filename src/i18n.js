@@ -9,10 +9,10 @@ i18n
     .init({
         resources : {
             en:{
-                translation:enTrans
+                translation: zhTrans
             },
             zh:{
-                translation:zhTrans
+                translation:enTrans
             }
         },
         fallbackLng: 'en',

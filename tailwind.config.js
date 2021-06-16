@@ -1,4 +1,4 @@
-const { boxShadow } = require("tailwindcss/defaultTheme");
+const { boxShadow, backgroundColor } = require("tailwindcss/defaultTheme");
 module.exports = {
   theme: {
     colors: {
@@ -7,6 +7,7 @@ module.exports = {
         lighter: "#F3F5F9",
         light: "#f5f5f5",
         dark: "#F8F9FA",
+        arrow: "#040B38"
       },
       blue: {
         light: "#4572DE",
@@ -27,6 +28,7 @@ module.exports = {
         gray: " #504862;",
         darker: "#272233",
         lighter: "#959595",
+        white:"#FFFFFF"
       },
     },
     fontFamily: {
@@ -290,7 +292,7 @@ module.exports = {
     },
   },
   variants: {
-    borderWidth: ["last"],
+    borderWidth: ["first"],
   },
   plugins: [require("@tailwindcss/custom-forms")],
 };
