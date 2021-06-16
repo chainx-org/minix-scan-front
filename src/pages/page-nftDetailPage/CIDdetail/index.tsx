@@ -5,14 +5,16 @@ import Detail from "../../../assets/icon_detail.svg";
 import avatComing from "../../../assets/avat_coming.svg";
 // import Star from "../../../assets/icon_star.svg";
 import { useTranslation } from "react-i18next";
-interface CIDProps {
+interface CIDProps
+{
   isloading?: Boolean;
   dataMsg?: any;
 }
 function CIDdetail({
   isloading,
   dataMsg,
-}: CIDProps): React.ReactElement<CIDProps> {
+}: CIDProps): React.ReactElement<CIDProps>
+{
   const { t } = useTranslation();
   // console.log("dataMsg", dataMsg);
   let CidInfo: Array<[]> = [];
@@ -70,7 +72,7 @@ function CIDdetail({
             <div className="text-blue-light">{currentAddress}</div>
           </div>
           <div className="flex justify-between pb-4">
-            <div>Age</div>
+            <div>Date of mint</div>
             <div>{CidTime}</div>
           </div>
           {/* <div className="flex justify-between pb-4">
