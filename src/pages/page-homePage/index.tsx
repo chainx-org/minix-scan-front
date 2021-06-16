@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useContext, Suspense } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React, { useContext, Suspense } from "react";
 import Search from "../../components/Search";
-import MinixIcon from "../../components/MinixIcon";
-import SearchList from "../../components/SearchList";
+// import SearchList from "../../components/SearchList";
 import Footer from "../../components/Footer/index";
 import homeBg from "../../assets/background.png";
 import { ClearBtnContext } from "../../components/Provider/ClearBtnProvider";
@@ -28,8 +26,8 @@ function Home(): React.ReactElement
     <>
       <div className="pt-40 h-overSpread" style={homePageImage}>
         <div className="w-150 h-40 flex flex-col mx-auto my-auto">
-          <div className="w-223 h-18 justify-center mx-auto mb-10">
-            <MinixIcon />
+          <div className="text-5xl text-gray-arrow font-semibold justify-center mx-auto mb-6">
+            MiniX
           </div>
           <div className="w-150 h-13 justify-center">
             <Search
