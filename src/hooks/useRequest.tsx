@@ -1,6 +1,6 @@
 import axios from "axios";
 import useSWR from "swr";
-export const urlHead = "https://miniscan-server-pre.coming.chat/";
+export const urlHead = "https://miniscan-server-pre.coming.chat";
 
 export const fetcher = (url: string, value: string) =>
   axios.get(urlHead.concat(url).concat(value)).then((res) => res.data);
