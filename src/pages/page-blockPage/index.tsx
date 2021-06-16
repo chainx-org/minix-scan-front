@@ -9,11 +9,13 @@ import FlexDiv from "../../components/FlexDiv";
 import Header from "../../components/Header";
 import TopSearchBar from "../../components/TopSearch";
 import { useTranslation } from "react-i18next";
-
+import { useRequest } from "../../hooks/useRequest";
 function Block(): React.ReactElement
 {
     const { t } = useTranslation();
     const blockId = window.location.search.slice(1, window.location.search.length);
+    const res = useRequest('/blocks/', blockId)
+    console.log(res, 'res')
     const list = [
         {
             title: t('Block height'),

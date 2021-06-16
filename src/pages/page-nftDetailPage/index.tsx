@@ -27,7 +27,7 @@ function NFTDetail(): React.ReactElement
   {
     try {
       let result = await axios(
-        `https://miniscan-server.coming.chat/transfer?address=${res.data[0]}`
+        `https://miniscan-server-pre.coming.chat/transfer?address=${res.data[0]}`
       );
       setRecordData(result.data.items);
       setIsLoadingRecordList(true);
