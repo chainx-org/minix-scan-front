@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../../components/Footer";
 import List from "../../components/List";
+import moment from "moment";
 import BasicTable, { TableHead } from "../../components/Table";
 import Succeed from "../../assets/succeed.svg";
 import Fail from "../../assets/fail.svg";
@@ -10,53 +11,57 @@ import Header from "../../components/Header";
 import TopSearchBar from "../../components/TopSearch";
 import { useTranslation } from "react-i18next";
 import { useRequest } from "../../hooks/useRequest";
+import { Spin } from "antd";
+import NoContent from "../../components/NoContent";
 function Block(): React.ReactElement
 {
     const { t } = useTranslation();
     const blockId = window.location.search.slice(1, window.location.search.length);
     const res = useRequest('/blocks/', blockId)
-    console.log(res, 'res')
+    const listRes = useRequest('/blockEvents?block=', blockId)
+    console.log(listRes, 'listRes')
     const list = [
         {
             title: t('Block height'),
             content: (
-                <div className="text-black-dark">672812</div>
+                <div className="text-black-dark">{res['header'] ? res['header']['number'] : '-'}</div>
             ),
         },
         {
             title: t('Block the hash'),
             content: (
                 <div className="text-blue-light">
-                    0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd
+                    {res['hash'] ? res['hash'] : '-'}
                 </div>
             ),
         },
         {
             title: t('The parent block hash'),
-            content: <div className="text-blue-light">0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd</div>,
+            content: <div className="text-blue-light">{res['header'] ? res['header']['parentHash'] : '-'}</div>,
         },
         {
             title: t('State the root'),
             content: (
-                <div className="text-black-dark">0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd</div>
+                <div className="text-black-dark">{res['header'] ? res['header']['stateRoot'] : '-'}</div>
             ),
         },
         {
             title: t('Trading root'),
             content: (
                 <div className="text-black-dark">
-                    0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd
+                    {res['header'] ? res['header']['extrinsicsRoot'] : '-'}
                 </div>
             ),
         },
         {
             title: t('A piece of time'),
-            content: <div className="text-black-dark">2018.09.12 16:24:36</div>,
+            content: <div className="text-black-dark">{res['blockTime'] ? moment(res['blockTime']).format("YYYY.MM.DD HH:MM:SS") : '-'}
+            </div>,
         },
-        {
-            title: t('The verifier'),
-            content: <div className="text-blue-light">0x3c9d7931c7c6cb4d8582071f40cf08b1538927e1</div>,
-        }
+        // {
+        //     title: t('The verifier'),
+        //     content: <div className="text-blue-light">0x3c9d7931c7c6cb4d8582071f40cf08b1538927e1</div>,
+        // }
     ];
     const columns: TableHead[] = [
         {
@@ -132,18 +137,31 @@ function Block(): React.ReactElement
     return (
         <FlexDiv>
             <Header />
-            <TopSearchBar titleName={t('Block height')} titleNode="true" titleValue={blockId} />
-            <div className='px-12 pb-6 bg-gray-light'>
-                <List list={list} loading={false} />
-                <Card title={t('Transaction list')} className='mt-6' children={<BasicTable columns={columns} dataSource={data} size='large' loading={false}
-                    pagination={{
-                        defaultPageSize: 5,
-                        hideOnSinglePage: true,
-                        showSizeChanger: false
-                    }}
-                />} />
-            </div>
-            <Footer />
+            <>
+                {res == "loading" ? (
+                    <Spin />
+                ) : (
+                    <>
+                        {!res && <NoContent title={blockId} />}
+                        {res &&
+                            <>
+                                <TopSearchBar titleName={t('Block height')} titleNode="true" titleValue={blockId} />
+                                <div className='px-12 pb-6 bg-gray-light'>
+                                    <List list={list} loading={false} />
+                                    <Card title={t('Transaction list')} className='mt-6' children={<BasicTable columns={columns} dataSource={data} size='large' loading={false}
+                                        pagination={{
+                                            defaultPageSize: 5,
+                                            hideOnSinglePage: true,
+                                            showSizeChanger: false
+                                        }}
+                                    />} />
+                                </div>
+
+                            </>}
+                    </>
+                )}
+            </>
+            < Footer />
         </FlexDiv>
     );
 }
