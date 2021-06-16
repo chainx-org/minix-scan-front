@@ -29,7 +29,7 @@ function TopTitleButton({
             <div className="py-2">
                 {title}#{blockValue}
             </div>
-            <TitleBtn operation={reduceBlock} value={`>`} />
+            <TitleBtn operation={increaseBlock} value={`>`} />
         </div>
     );
 }

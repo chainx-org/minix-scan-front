@@ -83,7 +83,7 @@ function Block(): React.ReactElement
             key: 'operation',
         },
         {
-            title: t('Results'),
+            title: t('Result'),
             dataIndex: 'result',
             key: 'result',
         }

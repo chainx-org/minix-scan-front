@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 interface itemProps
 {
     operation: Function,
@@ -10,18 +10,8 @@ function TitleBtn({
     value
 }: itemProps): React.ReactElement<itemProps>
 {
-    const [blockValue, setBlockValue] = useState(Number(value) ? Number(value) : 0)
-    const reduceBlock = () =>
-    {
-        setBlockValue(blockValue - 1)
-    }
-
-    const increaseBlock = () =>
-    {
-        setBlockValue(blockValue + 1)
-    }
     return (
-        <div className="topTitleBtn" onClick={() => operation}>
+        <div className="topTitleBtn" onClick={() => operation()}>
             <div className="topTitleSpan">{value}</div>
         </div>
     );

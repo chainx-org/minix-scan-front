@@ -15,7 +15,7 @@ function SearchList({
     <div className="pt-2.5 pb-2.5 bg-white-light overflow-y-scroll">
       {itemList.map((item, index) =>
       {
-        if (inputValue.length < 12 && (item.name == '#区块#' || item.name == '#CID#')) {
+        if (inputValue.length <= 12 && (item.name == '#区块#' || item.name == '#CID#')) {
           return (
             <div className="item" key={index}>
               <div className="item-left">
