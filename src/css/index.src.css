@@ -15,6 +15,13 @@
 html {
   --antd-wave-shadow-color: #bfbfbf !important;
 }
+
+.topTitleBtn {
+  @apply my-2 mx-2 w-6 h-6 bg-gray-arrow cursor-pointer rounded-rounded;
+}
+.topTitleSpan {
+  @apply text-center text-textColor-white;
+}
 .ant-skeleton-content .ant-skeleton-title + .ant-skeleton-paragraph {
   margin: 0;
 }
