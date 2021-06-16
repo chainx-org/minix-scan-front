@@ -8,17 +8,21 @@ import Card from "../../components/Card";
 import FlexDiv from "../../components/FlexDiv";
 import Header from "../../components/Header";
 import TopSearchBar from "../../components/TopSearch";
+import { useTranslation } from "react-i18next";
 
-function Block(): React.ReactElement {
+function Block(): React.ReactElement
+{
+    const { t } = useTranslation();
+    const blockId = window.location.search.slice(1, window.location.search.length);
     const list = [
         {
-            title: "区块高度",
+            title: t('Block height'),
             content: (
                 <div className="text-black-dark">672812</div>
             ),
         },
         {
-            title: "区块哈希",
+            title: t('Block the hash'),
             content: (
                 <div className="text-blue-light">
                     0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd
@@ -26,17 +30,17 @@ function Block(): React.ReactElement {
             ),
         },
         {
-            title: "父块哈希",
+            title: t('The parent block hash'),
             content: <div className="text-blue-light">0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd</div>,
         },
         {
-            title: "状态根",
+            title: t('State the root'),
             content: (
                 <div className="text-black-dark">0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd</div>
             ),
         },
         {
-            title: "交易根",
+            title: t('Trading root'),
             content: (
                 <div className="text-black-dark">
                     0x6614d177b8532b615a23591a9246f7c2a380c301f65b4e1d7fe1ccff352b63cd
@@ -44,42 +48,42 @@ function Block(): React.ReactElement {
             ),
         },
         {
-            title: "出块时间",
+            title: t('A piece of time'),
             content: <div className="text-black-dark">2018.09.12 16:24:36</div>,
         },
         {
-            title: "验证人",
+            title: t('The verifier'),
             content: <div className="text-blue-light">0x3c9d7931c7c6cb4d8582071f40cf08b1538927e1</div>,
         }
     ];
     const columns: TableHead[] = [
         {
-            title: '区块高度',
+            title: t('Block height'),
             dataIndex: 'blockHeight',
             key: 'blockHeight',
         },
         {
-            title: '区块时间',
+            title: t('Blocks of time'),
             dataIndex: 'blockTime',
             key: 'blockTime',
         },
         {
-            title: '交易哈希',
+            title: t('Trading hash'),
             dataIndex: 'transferHash',
             key: 'transferHash',
         },
         {
-            title: '发送人',
+            title: t('The sender'),
             key: 'send',
             dataIndex: 'send',
         },
         {
-            title: '操作',
+            title: t('operation'),
             dataIndex: 'operation',
             key: 'operation',
         },
         {
-            title: '结果',
+            title: t('Result'),
             dataIndex: 'result',
             key: 'result',
         }
@@ -109,33 +113,33 @@ function Block(): React.ReactElement {
         'send': <div className='text-blue-light'>{item.send}</div>,
         'operation': <div>{item.operation}</div>,
         'result': <div className="text-black-dark flex items-center justify-end">
-                    { item.result === '成功' ? (
-                    <>
-                        <img src={Succeed} alt="succeed" className="mr-2" />
-                        <span>成功</span>
-                    </>
-                    ) : (
-                    <>
-                        <img src={Fail} alt="succeed" className="mr-2" />
-                        <span>失败</span>
-                    </>
-                    )}
-                </div>,
-        }))
+            {item.result === '成功' ? (
+                <>
+                    <img src={Succeed} alt="succeed" className="mr-2" />
+                    <span>成功</span>
+                </>
+            ) : (
+                <>
+                    <img src={Fail} alt="succeed" className="mr-2" />
+                    <span>失败</span>
+                </>
+            )}
+        </div>,
+    }))
 
     return (
         <FlexDiv>
             <Header />
-            <TopSearchBar titleName={`区块高度# +${'67812'}`} />
+            <TopSearchBar titleName={t('Block height')} titleNode="true" titleValue={blockId} />
             <div className='px-12 pb-6 bg-gray-light'>
                 <List list={list} loading={false} />
-                <Card title='交易列表' className='mt-6' children={ <BasicTable columns={columns} dataSource={data} size='large' loading={false}
-                        pagination={{
-                            defaultPageSize: 5,
-                            hideOnSinglePage: true,
-                            showSizeChanger: false
-                        }}
-                />}/>
+                <Card title={t('Transaction list')} className='mt-6' children={<BasicTable columns={columns} dataSource={data} size='large' loading={false}
+                    pagination={{
+                        defaultPageSize: 5,
+                        hideOnSinglePage: true,
+                        showSizeChanger: false
+                    }}
+                />} />
             </div>
             <Footer />
         </FlexDiv>

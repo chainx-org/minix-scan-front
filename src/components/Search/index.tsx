@@ -2,13 +2,14 @@ import React, { ReactNode, useRef, useContext } from "react";
 import { Input } from "antd";
 import searchIcon from "../../assets/search-24px.svg";
 import ClearIcon from "../ClearIcon/index";
-import { InputContext } from "../../hooks/InputProvider";
+import { InputContext } from "../Provider/InputProvider";
 import SearchList from "../../components/SearchList/index";
-import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
+import { ClearBtnContext } from "../Provider/ClearBtnProvider";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-interface seachProps {
+interface seachProps
+{
   icon: Boolean | String;
   clear: Boolean | String;
   loadingStatus: Boolean | any;
@@ -29,7 +30,8 @@ function Search({
   className,
   directTo,
   mr,
-}: seachProps): React.ReactElement<seachProps> {
+}: seachProps): React.ReactElement<seachProps>
+{
   const { t } = useTranslation();
   const { setInputValue, clearInput } = useContext(InputContext);
   const { isShowSearchList } = useContext(ClearBtnContext);
@@ -37,34 +39,42 @@ function Search({
   const SearchIcon = icon ? <img src={searchIcon} /> : "";
   const searchButton = useRef<any>(null);
   const clearIconControl = clear ? ClearIcon(searchButton) : ClearIcon();
-  const clearInputValue = () => {
+  const clearInputValue = () =>
+  {
     clearInput();
   };
-  let itemValue = ["#区块#", "#账户#", "#交易#", "#CID#"];
+  let itemValue = [{
+    name: "#CID#",
+    type: "/NFTDetail?",
+  }, {
+    name: "#区块#",
+    type: "/Block?",
+  }];
   return (
     <div className={`relative ${className}`}>
       <Search
         ref={searchButton}
         placeholder={t("Search block / transaction / CID / account") || ""}
-        // enterButton={directTo}
         enterButton={<Link to={`${directTo}`}>{t("Search")}</Link>}
         prefix={SearchIcon}
         size="large"
         loading={loadingStatus}
-        onChange={(e) => {
+        onChange={(e) =>
+        {
           e.target.value = searchInput(e.target.value);
         }}
-        onPressEnter={() => {
+        onPressEnter={() =>
+        {
           searchFun();
         }}
         onSearch={clearInputValue}
         suffix={clearIconControl}
       />
-      {/* {isShowSearchList && (
+      {isShowSearchList && (
         <div className={`shadow-sm mt-3 rounded-rounded mr-${mr}`}>
           <SearchList itemList={itemValue} />
         </div>
-      )} */}
+      )}
     </div>
   );
 }

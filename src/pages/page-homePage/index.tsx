@@ -5,10 +5,10 @@ import MinixIcon from "../../components/MinixIcon";
 import SearchList from "../../components/SearchList";
 import Footer from "../../components/Footer/index";
 import homeBg from "../../assets/background.png";
-import { ClearBtnContext } from "../../hooks/ClearBtnProvider";
-import { InputContext } from "../../hooks/InputProvider";
-import Child from "../../api/user";
-function Home(): React.ReactElement {
+import { ClearBtnContext } from "../../components/Provider/ClearBtnProvider";
+import { InputContext } from "../../components/Provider/InputProvider";
+function Home(): React.ReactElement
+{
   const {
     isShowSearchList,
     showClearIcon,
