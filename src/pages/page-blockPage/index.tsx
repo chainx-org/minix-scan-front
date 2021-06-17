@@ -18,8 +18,8 @@ function Block(): React.ReactElement
     const { t } = useTranslation();
     const blockId = window.location.search.slice(1, window.location.search.length);
     const res = useRequest('/blocks/', blockId)
-    const listRes = useRequest('/blockEvents?block=', blockId)
-    console.log(listRes, 'listRes')
+    const { items } = useRequest('/blockEvents?block=', blockId)
+    console.log(items ? items : 'listRes');
     const list = [
         {
             title: t('Block height'),
@@ -95,40 +95,22 @@ function Block(): React.ReactElement
             key: 'result',
         }
     ];
-    const dataList = [
-        {
-            blockHeight: '7834',
-            blockTime: '2019.03.01 08:16:45',
-            transferHash: '1Bq97r2dW814jmg8J1Bq97r2dW814jmg8J',
-            send: '1Bq97r2dW814jmg8J1Bq9…',
-            operation: '部署',
-            result: '成功',
-        },
-        {
-            blockHeight: '7834',
-            blockTime: '2019.03.01 08:16:45',
-            transferHash: '1Bq97r2dW814jmg8J1Bq97r2dW814jmg8J',
-            send: '1Bq97r2dW814jmg8J1Bq9…',
-            operation: '部署',
-            result: '失败',
-        }
-    ]
-    const data = dataList.map((item) => ({
-        'blockHeight': <div className='text-blue-light'>{item.blockHeight}</div>,
-        'blockTime': <div>{item.blockTime}</div>,
-        'transferHash': <div className='text-blue-light'>{item.transferHash}</div>,
-        'send': <div className='text-blue-light'>{item.send}</div>,
-        'operation': <div>{item.operation}</div>,
+    const data = items && items.map((item: any) => ({
+        'blockHeight': <div className='text-blue-light'>{item['indexer'] ? item['indexer']['blockHeight'] : ''}</div>,
+        'blockTime': <div>{item['indexer'] ? item['indexer']['blockTime'] : ''}</div>,
+        'transferHash': <div className='text-blue-light'>{item['extrinsicHash'] ? item['extrinsicHash'] : ''}</div>,
+        'send': <div className='text-blue-light'>{Array.isArray(item['data']) && Object.prototype.toString.call(item['data'][0]) !== '[object Object]' ? item['data'][0] : '-'}</div>,
+        'operation': <div>{item['method']}</div>,
         'result': <div className="text-black-dark flex items-center justify-end">
-            {item.result === '成功' ? (
+            {'success' === 'success' ? (
                 <>
                     <img src={Succeed} alt="succeed" className="mr-2" />
-                    <span>成功</span>
+                    <span>success</span>
                 </>
             ) : (
                 <>
                     <img src={Fail} alt="succeed" className="mr-2" />
-                    <span>失败</span>
+                    <span>fail</span>
                 </>
             )}
         </div>,
