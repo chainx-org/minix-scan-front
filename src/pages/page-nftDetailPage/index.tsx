@@ -112,7 +112,7 @@ function NFTDetail(): React.ReactElement
                 <TopSearchBar titleName={t("NFT detail")} />
                 <div className="px-12 pb-6 bg-gray-light">
                   <div className="grid grid-cols-card mb-6">
-                    <Card className="mr-6">
+                    <Card title="" className="mr-6">
                       <iframe
                         src={`https://nft.coming.chat/` + cid}
                         frameBorder="0"
@@ -122,7 +122,7 @@ function NFTDetail(): React.ReactElement
                         id="childFrame"
                       />
                     </Card>
-                    <Card children={<CIDdetail dataMsg={res} />} />
+                    <Card title="" children={<CIDdetail dataMsg={res} />} />
                   </div>
                   <Card
                     title="交易记录"

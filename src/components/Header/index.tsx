@@ -1,5 +1,5 @@
 import React from "react";
-import topBarIcon from "../../assets/logo_miniX.svg";
+// import topBarIcon from "../../assets/logo_miniX.svg";
 
 function Header(): React.ReactElement
 {
@@ -9,8 +9,8 @@ function Header(): React.ReactElement
   }
   return (
     <div className="w-overSpread bg-topBar-black h-15">
-      <div className="py-2.5 pl-12">
-        <img src={topBarIcon} onClick={jumpToHomePage} />
+      <div className="text-2xl text-white-light font-semibold py-2.5 pl-12" onClick={jumpToHomePage}>
+        MiniX
       </div>
     </div>
   );

@@ -20,21 +20,21 @@ function Trade(): React.ReactElement
   const list = [
     {
       title: t('Block height'),
-      content: <div className="text-blue-light">{res['indexer'] ? res['indexer']['blockHeight'] : 'resNoData'}</div>,
+      content: <div className="text-blue-light">{res['indexer'] ? res['indexer']['blockHeight'] : '-'}</div>,
     },
     {
       title: t('A piece of time'),
-      content: <div className="text-black-dark">{res['indexer'] ? moment(res['indexer']['blockTime']).format("YYYY.MM.DD HH:MM:SS") : 'nodata'}</div>,
+      content: <div className="text-black-dark">{res['indexer'] ? moment(res['indexer']['blockTime']).format("YYYY.MM.DD HH:MM:SS") : '-'}</div>,
     },
     {
       title: t('Serial number'),
-      content: <div className="text-black-dark">{res['indexer'] ? res['indexer']['index'] : 'resNoData'}</div>,
+      content: <div className="text-black-dark">{res['indexer'] ? res['indexer']['index'] : '-'}</div>,
     },
     {
       title: t('Transaction hash'),
       content: (
         <div className="text-blue-light">
-          {res['hash'] ? res['hash'] : 'resNoData'}
+          {res['hash'] ? res['hash'] : '-'}
         </div>
       ),
     },
@@ -43,7 +43,7 @@ function Trade(): React.ReactElement
       content: (
         <div className="text-blue-light">
 
-          {res['signer'] ? res['signer'] : 'resNoData'}
+          {res['signer'] ? res['signer'] : '-'}
         </div>
       ),
     },
@@ -99,13 +99,13 @@ function Trade(): React.ReactElement
     // },
     {
       title: t('Version'),
-      content: <div className="text-black-dark"> {res['version'] ? res['version'] : 'resNoData'}</div>,
+      content: <div className="text-black-dark"> {res['version'] ? res['version'] : '-'}</div>,
     },
     {
       title: t('data'),
       content: (
         <div className="text-black-dark break-all">
-          {res['data'] ? res['data'] : 'resNoData'}
+          {res['data'] ? res['data'] : '-'}
         </div>
       ),
     },
