@@ -3,7 +3,7 @@ import React from "react";
 interface CardProps {
   className?: string;
   children?: React.ReactNode;
-  title?: string;
+  title: string;
 }
 function Card({ className = '', children, title }: CardProps): React.ReactElement {
 

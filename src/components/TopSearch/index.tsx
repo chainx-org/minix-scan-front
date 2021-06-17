@@ -6,7 +6,7 @@ import TopTitleButton from "../../components/TopTitleButton"
 
 interface IndexProps
 {
-  titleName?: String;
+  titleName: String;
   titleNode?: Boolean | String;
   titleValue?: String
 }
