@@ -19,13 +19,13 @@ function TopTitleButton({
     const reduceBlock = () =>
     {
         // setBlockValue(blockValue - 1)
-        DirectToPage('/block/', String(blockValue + 1))
+        DirectToPage('/Block?', String(blockValue - 1))
     }
 
     const increaseBlock = () =>
     {
         // setBlockValue(blockValue + 1)
-        DirectToPage('/block/', String(blockValue - 1))
+        DirectToPage('/Block?', String(blockValue + 1))
     }
     return (
         <div className="flex justify-between py-2 h-16" >
